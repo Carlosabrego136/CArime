@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Quinceañera Camila Curiel · 26 Septiembre 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assests/fondo.jpg">
+<link rel="preload" as="image" href="assests/on-horse-smiling.jpg">
 <style>
 :root{
   --gold:#C9A84C;--gold-light:#E8D08A;--gold-pale:#F5EDD0;
@@ -332,23 +334,22 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .photo-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:3px;padding:0 3px;
+  gap:2px;padding:0 2px;
 }
 .pg-item{
   position:relative;
-  /* Fixed aspect ratio – images fill cell entirely */
   aspect-ratio:3/4;
   overflow:hidden;
   cursor:pointer;
-  background:#1a1208;
+  background:#2a1e10;
 }
 .pg-item:first-child{grid-row:span 2;aspect-ratio:unset}
 .pg-item.wide{grid-column:span 2;aspect-ratio:2/1.4}
 
 .pg-img{
   width:100%;height:100%;
-  object-fit:contain;
-  object-position:center center;
+  object-fit:cover;
+  object-position:center 20%;
   display:block;
   transition:transform .5s cubic-bezier(.25,.46,.45,.94);
 }
@@ -709,7 +710,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
 
   <!-- PARALLAX STRIP 1 -->
   <div class="pstrip" id="strip1">
-    <img class="pstrip-img" id="simg1" src="assests/on-horse-smiling.jpg" alt="" loading="lazy" style="object-position:center 5%">
+    <img class="pstrip-img" id="simg1" src="assests/on-horse-smiling.jpg" alt="" fetchpriority="high" decoding="async" style="object-position:center 5%">
     <div class="pstrip-ov" style="background:rgba(26,58,107,.32)">
       <div class="pstrip-txt">Un Día Muy Especial ♡</div>
     </div>
@@ -742,7 +743,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
 
   <!-- PARALLAX STRIP 2 -->
   <div class="pstrip" id="strip2">
-    <img class="pstrip-img" id="simg2" src="assests/tree-standing-smile.jpg" alt="" loading="lazy" style="object-position:center 5%">
+    <img class="pstrip-img" id="simg2" src="assests/tree-standing-smile.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 5%">
     <div class="pstrip-ov" style="background:rgba(122,92,58,.36)">
       <div class="pstrip-txt">Vaquero Elegante</div>
     </div>
@@ -759,46 +760,46 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
 
       <!-- ROW A: tall portrait left | 2 stacked right -->
       <div class="pg-item" style="grid-row:span 2" data-idx="0">
-        <img class="pg-img" src="assests/tree-standing-smile.jpg" alt="" loading="lazy" style="object-position:center 8%">
+        <img class="pg-img" src="assests/tree-standing-smile.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" data-idx="1">
-        <img class="pg-img" src="assests/close-up-looking-away.jpg" alt="" loading="lazy" style="object-position:center 12%">
+        <img class="pg-img" src="assests/close-up-looking-away.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 18%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" data-idx="2">
-        <img class="pg-img" src="assests/smiling-looking-away.jpg" alt="" loading="lazy" style="object-position:center 10%">
+        <img class="pg-img" src="assests/smiling-looking-away.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
       <!-- ROW B: wide landscape (mountain view) spanning 2 cols -->
       <div class="pg-item" style="grid-column:span 2;aspect-ratio:16/9" data-idx="3">
-        <img class="pg-img" src="assests/on-horse-mountain-view.jpg" alt="" loading="lazy" style="object-position:center 22%;height:100%;top:0">
+        <img class="pg-img" src="assests/on-horse-mountain-view.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 30%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <!-- small square right of wide -->
       <div class="pg-item" style="grid-row:span 1" data-idx="4">
-        <img class="pg-img" src="assests/on-horse-touching-hat.jpg" alt="" loading="lazy" style="object-position:center 10%">
+        <img class="pg-img" src="assests/on-horse-touching-hat.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
       <!-- ROW C: 2 stacked left | tall portrait right -->
       <div class="pg-item" data-idx="5">
-        <img class="pg-img" src="assests/walking-smiling-horse.jpg" alt="" loading="lazy" style="object-position:center 12%">
+        <img class="pg-img" src="assests/walking-smiling-horse.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 18%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" data-idx="6">
-        <img class="pg-img" src="assests/petting-horse.jpg" alt="" loading="lazy" style="object-position:center 18%">
+        <img class="pg-img" src="assests/petting-horse.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 20%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" style="grid-row:span 2" data-idx="7">
-        <img class="pg-img" src="assests/next-2-horse-smiling.jpg" alt="" loading="lazy" style="object-position:center 10%">
+        <img class="pg-img" src="assests/next-2-horse-smiling.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
       <!-- ROW D (completes ROW C tall right): wide left 2 cols -->
       <div class="pg-item" style="grid-column:span 2;aspect-ratio:2/1" data-idx="8">
-        <img class="pg-img" src="assests/sitting-baby-goat.jpg" alt="" loading="lazy" style="object-position:center 22%;height:100%;top:0">
+        <img class="pg-img" src="assests/sitting-baby-goat.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 30%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
@@ -968,7 +969,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
 
   <!-- PARALLAX STRIP 3 -->
   <div class="pstrip" id="strip3">
-    <img class="pstrip-img" id="simg3" src="assests/smiling-looking-away.jpg" alt="" loading="lazy" style="object-position:center 5%">
+    <img class="pstrip-img" id="simg3" src="assests/smiling-looking-away.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 5%">
     <div class="pstrip-ov" style="background:rgba(8,5,3,.4)">
       <div class="pstrip-txt" style="font-size:clamp(14px,4.5vw,26px);font-style:italic">♡ Que este día quede grabado<br>en tu corazón para siempre ♡</div>
     </div>
