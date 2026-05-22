@@ -1302,7 +1302,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openEnv(
 /* ===== MUSIC ===== */
 let playing=false;
 const bgm=document.getElementById('bgm');
-// bgm.src='assests/sabes-una-cosa.mp3';
+bgm.src='assests/sabes-una-cosa.mp3';
 bgm.addEventListener('play',()=>{playing=true;document.getElementById('play-ic').style.display='none';document.getElementById('pause-ic').style.display='block'});
 bgm.addEventListener('pause',()=>{playing=false;document.getElementById('play-ic').style.display='block';document.getElementById('pause-ic').style.display='none'});
 bgm.addEventListener('timeupdate',()=>{if(bgm.duration)document.getElementById('pprog').style.width=(bgm.currentTime/bgm.duration*100)+'%'});
