@@ -325,7 +325,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 /* =========================================================
    PHOTO GALLERY
    ========================================================= */
-.gallery-section{background:#0e0c09;padding:clamp(50px,10vw,80px) 0}
+.gallery-section{background:#0e0c09;padding:clamp(50px,10vw,80px) 0 0}
 .gallery-header{text-align:center;padding:0 20px 36px}
 .gallery-header .slbl{color:rgba(201,168,76,.8)}
 .gallery-header .stit{color:var(--gold)}
@@ -364,7 +364,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   }
   .pg-item{
     width:100%;
-    aspect-ratio:unset;
+    aspect-ratio:unset !important;
     height:auto;
     overflow:hidden;
     background:transparent;
@@ -427,20 +427,26 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .gdiv-ornament{
   display:flex;
   align-items:center;
-  gap:14px;
-  white-space:nowrap;
-  flex-wrap:nowrap;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  width:100%;
+  text-align:center;
 }
 .gdiv-ornament span{
   font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:clamp(22px,5.5vw,38px);
+  font-size:clamp(20px,6vw,38px);
   font-style:italic;
   font-weight:600;
   color:#5a3e1b;
-  letter-spacing:.12em;
+  letter-spacing:.1em;
   text-transform:uppercase;
   text-shadow:0 1px 3px rgba(255,245,220,.8), 0 2px 8px rgba(180,140,60,.2);
-  line-height:1.1;
+  line-height:1.2;
+  white-space:normal;
+  text-align:center;
+  flex:1 1 auto;
+  min-width:0;
 }
 .gdiv-diamond{
   width:7px;height:7px;
@@ -934,7 +940,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
       </div>
 
       <!-- ROW B: on-horse-touching-hat full width -->
-      <div class="pg-item" style="grid-column:span 3;aspect-ratio:16/7" data-idx="3">
+      <div class="pg-item" style="grid-column:span 3;aspect-ratio:16/7" data-idx="4">
         <img class="pg-img" src="assests/on-horse-touching-hat.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
