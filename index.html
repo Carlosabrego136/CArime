@@ -222,20 +222,19 @@ body{background:#0d0a07;font-family:'Lato',sans-serif;overflow-x:hidden}
    - object-position keeps face in frame
    ========================================================= */
 .pstrip{
-  height:clamp(280px,65vw,460px);
+  height:clamp(320px,70vw,500px);
   position:relative;
   overflow:hidden;
 }
 .pstrip-img{
   position:absolute;
   width:100%;
-  /* Tall enough for dramatic parallax travel */
-  height:200%;
-  /* Start so center is roughly at center of strip */
-  top:-50%;
+  /* 150% gives enough room for smooth parallax without cutting subject too much */
+  height:150%;
+  top:-25%;
   object-fit:cover;
-  /* Portrait shots: anchor top so face stays visible */
-  object-position:center 5%;
+  /* Show more of the subject – less aggressive crop */
+  object-position:center 15%;
   will-change:transform;
   display:block;
 }
@@ -756,43 +755,37 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
       <div class="gline rv d2"></div>
     </div>
     <div class="photo-grid" id="photoGrid">
+      <!-- tall hero: tree-standing-smile (full length portrait) -->
       <div class="pg-item" style="grid-row:span 2" data-idx="0">
-        <img class="pg-img" src="assests/tree-standing-smile.jpg" alt="" loading="lazy" style="object-position:center 8%">
+        <img class="pg-img" src="assests/tree-standing-smile.jpg" alt="" loading="lazy" style="object-position:center 10%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" data-idx="1">
-        <img class="pg-img" src="assests/close-up-looking-away.jpg" alt="" loading="lazy" style="object-position:center 10%">
+        <img class="pg-img" src="assests/close-up-looking-away.jpg" alt="" loading="lazy" style="object-position:center 12%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" data-idx="2">
-        <img class="pg-img" src="assests/smiling-looking-away.jpg" alt="" loading="lazy" style="object-position:center 8%">
+        <img class="pg-img" src="assests/smiling-looking-away.jpg" alt="" loading="lazy" style="object-position:center 10%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
-      <div class="pg-item" data-idx="3">
-        <img class="pg-img" src="assests/on-horse-touching-hat.jpg" alt="" loading="lazy" style="object-position:center 12%">
+      <!-- on-horse-touching-hat tall -->
+      <div class="pg-item" style="grid-row:span 2" data-idx="3">
+        <img class="pg-img" src="assests/on-horse-touching-hat.jpg" alt="" loading="lazy" style="object-position:center 10%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" data-idx="4">
-        <img class="pg-img" src="assests/boot.jpg" alt="" loading="lazy" style="object-position:center 20%">
+        <img class="pg-img" src="assests/walking-smiling-horse.jpg" alt="" loading="lazy" style="object-position:center 12%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
-      <div class="pg-item wide" data-idx="5">
-        <img class="pg-img" src="assests/on-horse-mountain-view.jpg" alt="" loading="lazy" style="object-position:center 15%">
-        <div class="pg-ov"></div><div class="pg-frame"></div>
-      </div>
-      <div class="pg-item" data-idx="6">
-        <img class="pg-img" src="assests/walking-smiling-horse.jpg" alt="" loading="lazy" style="object-position:center 10%">
-        <div class="pg-ov"></div><div class="pg-frame"></div>
-      </div>
-      <div class="pg-item" data-idx="7">
+      <div class="pg-item" data-idx="5">
         <img class="pg-img" src="assests/petting-horse.jpg" alt="" loading="lazy" style="object-position:center 18%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
-      <div class="pg-item" data-idx="8">
+      <div class="pg-item" data-idx="6">
         <img class="pg-img" src="assests/next-2-horse-smiling.jpg" alt="" loading="lazy" style="object-position:center 12%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
-      <div class="pg-item" data-idx="9">
+      <div class="pg-item" data-idx="7">
         <img class="pg-img" src="assests/sitting-baby-goat.jpg" alt="" loading="lazy" style="object-position:center 20%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
@@ -997,6 +990,27 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
     </div>
   </section>
 
+  <!-- CLOSING PARALLAX STRIP – boot.jpg -->
+  <div class="pstrip" id="strip4" style="height:clamp(280px,60vw,420px)">
+    <img class="pstrip-img" id="simg4" src="assests/boot.jpg" alt="" loading="lazy" style="object-position:center 30%">
+    <div class="pstrip-ov" style="background:rgba(26,18,8,.45)">
+      <div class="pstrip-txt" style="font-size:clamp(15px,5vw,30px);font-style:italic;font-family:'Cormorant Garamond',serif;font-weight:300;letter-spacing:.15em">
+        ✦ &nbsp; Lista para sus XV &nbsp; ✦
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING PARALLAX STRIP – on-horse-mountain-view.jpg -->
+  <div class="pstrip" id="strip5" style="height:clamp(300px,70vw,480px)">
+    <img class="pstrip-img" id="simg5" src="assests/on-horse-mountain-view.jpg" alt="" loading="lazy" style="object-position:center 20%">
+    <div class="pstrip-ov" style="background:linear-gradient(180deg,rgba(26,58,107,.25) 0%,rgba(8,5,3,.55) 100%)">
+      <div class="pstrip-txt" style="font-size:clamp(16px,5.5vw,34px)">
+        Camila Curiel<br>
+        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.65em;font-weight:300;letter-spacing:.18em;opacity:.9">26 · Septiembre · 2026</span>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="ft-name">Camila Curiel</div>
     <div class="ft-div"></div>
@@ -1076,31 +1090,38 @@ function toggleMusic(){if(!bgm.src||bgm.src===location.href){alert('Agrega asses
 function initParallax(){
   const heroBg=document.getElementById('heroBg');
   const strips=[
-    {img:document.getElementById('simg1'),wrap:document.getElementById('strip1'),speed:.55},
-    {img:document.getElementById('simg2'),wrap:document.getElementById('strip2'),speed:.5},
-    {img:document.getElementById('simg3'),wrap:document.getElementById('strip3'),speed:.52},
+    {img:document.getElementById('simg1'),wrap:document.getElementById('strip1'),speed:.18},
+    {img:document.getElementById('simg2'),wrap:document.getElementById('strip2'),speed:.16},
+    {img:document.getElementById('simg3'),wrap:document.getElementById('strip3'),speed:.17},
+    {img:document.getElementById('simg4'),wrap:document.getElementById('strip4'),speed:.18},
+    {img:document.getElementById('simg5'),wrap:document.getElementById('strip5'),speed:.16},
   ];
 
+  // Smooth lerp target
+  let currentY=window.scrollY;
+  let targetY=window.scrollY;
+
   function tick(){
-    const sy=window.scrollY,vh=window.innerHeight;
-    /* Hero: subtle scroll only, starts fully visible */
-    if(heroBg) heroBg.style.transform=`translateY(${sy*.3}px)`;
+    // Lerp: smooth follow — no jump
+    currentY+=(targetY-currentY)*.08;
+    const sy=currentY;
+    const vh=window.innerHeight;
+
+    /* Hero subtle drift */
+    if(heroBg) heroBg.style.transform=`translateY(${sy*.25}px)`;
 
     strips.forEach(({img,wrap,speed})=>{
       if(!img||!wrap)return;
       const r=wrap.getBoundingClientRect();
-      if(r.bottom<-200||r.top>vh+200)return;
-      /* distance of strip center from viewport center */
+      if(r.bottom<-300||r.top>vh+300)return;
       const center=(r.top+r.height/2)-vh/2;
-      /* high speed value = dramatic travel across the tall image */
       img.style.transform=`translateY(${center*speed}px)`;
     });
+
+    requestAnimationFrame(tick);
   }
 
-  let ticking=false;
-  window.addEventListener('scroll',()=>{
-    if(!ticking){requestAnimationFrame(()=>{tick();ticking=false});ticking=true}
-  },{passive:true});
+  window.addEventListener('scroll',()=>{targetY=window.scrollY},{passive:true});
   tick();
 }
 
@@ -1118,8 +1139,6 @@ const PHOTOS=[
   'assests/close-up-looking-away.jpg',
   'assests/smiling-looking-away.jpg',
   'assests/on-horse-touching-hat.jpg',
-  'assests/boot.jpg',
-  'assests/on-horse-mountain-view.jpg',
   'assests/walking-smiling-horse.jpg',
   'assests/petting-horse.jpg',
   'assests/next-2-horse-smiling.jpg',
