@@ -347,8 +347,8 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 
 .pg-img{
   width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 12%;
+  object-fit:contain;
+  object-position:center center;
   display:block;
   transition:transform .5s cubic-bezier(.25,.46,.45,.94);
 }
@@ -805,14 +805,6 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
     </div>
   </div>
 
-  <!-- PARALLAX STRIP 3 -->
-  <div class="pstrip" id="strip3">
-    <img class="pstrip-img" id="simg3" src="assests/smiling-looking-away.jpg" alt="" loading="lazy" style="object-position:center 5%">
-    <div class="pstrip-ov" style="background:rgba(8,5,3,.4)">
-      <div class="pstrip-txt" style="font-size:clamp(14px,4.5vw,26px);font-style:italic">♡ Que este día quede grabado<br>en tu corazón para siempre ♡</div>
-    </div>
-  </div>
-
   <!-- ITINERARY -->
   <section class="sec-blue">
     <div class="si">
@@ -974,6 +966,14 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
     </div>
   </section>
 
+  <!-- PARALLAX STRIP 3 -->
+  <div class="pstrip" id="strip3">
+    <img class="pstrip-img" id="simg3" src="assests/smiling-looking-away.jpg" alt="" loading="lazy" style="object-position:center 5%">
+    <div class="pstrip-ov" style="background:rgba(8,5,3,.4)">
+      <div class="pstrip-txt" style="font-size:clamp(14px,4.5vw,26px);font-style:italic">♡ Que este día quede grabado<br>en tu corazón para siempre ♡</div>
+    </div>
+  </div>
+
   <!-- FAMILY -->
   <section class="sec-cream">
     <div class="si">
@@ -1002,17 +1002,6 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
       <p class="cash-note rv d3">✦ &nbsp; Efectivo únicamente, por favor &nbsp; ✦</p>
     </div>
   </section>
-
-  <!-- CLOSING PARALLAX STRIP – on-horse-mountain-view.jpg (before footer) -->
-  <div class="pstrip" id="strip4" style="height:clamp(320px,72vw,500px)">
-    <img class="pstrip-img" id="simg4" src="assests/on-horse-mountain-view.jpg" alt="" loading="lazy" style="object-position:center 18%">
-    <div class="pstrip-ov" style="background:linear-gradient(180deg,rgba(26,58,107,.22) 0%,rgba(8,5,3,.52) 100%)">
-      <div class="pstrip-txt" style="font-size:clamp(17px,5.5vw,36px)">
-        Camila Curiel<br>
-        <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.62em;font-weight:300;letter-spacing:.2em;opacity:.88">26 · Septiembre · 2026</span>
-      </div>
-    </div>
-  </div>
 
   <!-- BOOT – footer parallax backdrop -->
   <div style="position:relative;overflow:hidden">
@@ -1102,7 +1091,6 @@ function initParallax(){
     {img:document.getElementById('simg1'),wrap:document.getElementById('strip1'),speed:.18},
     {img:document.getElementById('simg2'),wrap:document.getElementById('strip2'),speed:.16},
     {img:document.getElementById('simg3'),wrap:document.getElementById('strip3'),speed:.17},
-    {img:document.getElementById('simg4'),wrap:document.getElementById('strip4'),speed:.18},
   ];
 
   // Smooth lerp target
