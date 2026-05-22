@@ -187,7 +187,10 @@ body{background:#0d0a07;font-family:'Lato',sans-serif;overflow-x:hidden}
   height:100svh;
   min-height:600px;
   overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
 }
 /* The background image covers the ENTIRE hero with no parallax on load */
 .hero-bg{
@@ -202,17 +205,44 @@ body{background:#0d0a07;font-family:'Lato',sans-serif;overflow-x:hidden}
   position:absolute;inset:0;
   background:linear-gradient(
     180deg,
-    rgba(8,5,3,.22) 0%,
-    rgba(26,58,107,.15) 40%,
-    rgba(8,5,3,.68) 100%
+    rgba(0,0,0,.08) 0%,
+    rgba(0,0,0,.0) 45%,
+    rgba(10,5,2,.55) 75%,
+    rgba(10,5,2,.82) 100%
   );
 }
-.hero-c{position:relative;z-index:2;text-align:center;padding:0 24px}
-.h-pre{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(13px,4vw,19px);color:var(--gold-light);letter-spacing:.18em;margin-bottom:10px;animation:hUp .9s ease .1s both}
-.h-name{font-family:'Cinzel Decorative',cursive;font-size:clamp(40px,12vw,84px);color:#fff;line-height:1.05;text-shadow:0 4px 30px rgba(201,168,76,.4),0 2px 14px rgba(0,0,0,.7);animation:hUp .9s ease .35s both;letter-spacing:.04em}
-.h-age{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,6.5vw,46px);color:var(--gold);letter-spacing:.14em;margin-top:8px;animation:hUp .9s ease .55s both}
-.h-div{width:110px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto;animation:hUp .9s ease .7s both}
-.h-date{font-family:'Lato',sans-serif;font-weight:300;font-size:clamp(11px,3.5vw,15px);color:var(--gold-pale);letter-spacing:.32em;text-transform:uppercase;animation:hUp .9s ease .85s both}
+.hero-c{position:relative;z-index:2;text-align:center;padding:0 24px;margin-top:auto;padding-bottom:clamp(48px,10vw,80px)}
+.h-pre{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(14px,4.2vw,20px);color:rgba(232,208,138,.9);letter-spacing:.16em;margin-bottom:16px;animation:hUp .9s ease .1s both;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+.h-name{
+  font-family:'Cinzel Decorative',cursive;
+  font-size:clamp(52px,16vw,100px);
+  color:#fff;
+  line-height:1.0;
+  text-shadow:
+    0 0 40px rgba(201,168,76,.6),
+    0 0 80px rgba(201,168,76,.25),
+    0 3px 20px rgba(0,0,0,.9);
+  animation:hUp .9s ease .35s both;
+  letter-spacing:.06em
+}
+.h-age{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,6vw,42px);color:var(--gold);letter-spacing:.22em;margin-top:6px;animation:hUp .9s ease .55s both;text-shadow:0 2px 14px rgba(0,0,0,.7);font-style:italic}
+.h-div{
+  width:160px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:20px auto 16px;
+  animation:hUp .9s ease .7s both;
+  position:relative;
+}
+.h-div::before{
+  content:'✦';
+  position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  color:var(--gold);font-size:11px;
+  background:#0a0502;
+  padding:0 8px;
+}
+.h-frase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4.5vw,22px);color:rgba(255,240,200,.88);letter-spacing:.08em;margin-bottom:16px;animation:hUp .9s ease .8s both;text-shadow:0 2px 14px rgba(0,0,0,.8);line-height:1.5}
+.h-date{font-family:'Lato',sans-serif;font-weight:300;font-size:clamp(11px,3.2vw,14px);color:var(--gold-pale);letter-spacing:.35em;text-transform:uppercase;animation:hUp .9s ease .95s both}
 @keyframes hUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;animation:hUp 1s ease 1.4s both;display:flex;flex-direction:column;align-items:center;gap:3px}
 .scroll-cue span{display:block;width:11px;height:11px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);animation:cueB 1.8s ease infinite}
@@ -866,10 +896,11 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-ov"></div>
     <div class="hero-c">
-      <p class="h-pre">Con la gracia de Dios te invitamos a celebrar</p>
+      <p class="h-pre">Con amor y alegría te invitamos a celebrar</p>
       <h1 class="h-name">Camila<br>Curiel</h1>
-      <div class="h-age">XV Años</div>
+      <div class="h-age">✦ XV Años ✦</div>
       <div class="h-div"></div>
+      <p class="h-frase">«Que este día brille tanto<br>como tú lo haces cada día»</p>
       <div class="h-date">26 · Septiembre · 2026</div>
     </div>
     <div class="scroll-cue"><span></span><span></span><span></span></div>
