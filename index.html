@@ -390,44 +390,69 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
    CARRUSEL PAISAJE
    ========================================================= */
 .gallery-divider{
-  background:#0e0c09;
+  position:relative;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E"),
+    linear-gradient(180deg,#c8b89a 0%,#e8dcc8 30%,#f0e6d2 50%,#e8dcc8 70%,#c8b89a 100%);
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:10px;
-  padding:32px 24px 28px;
+  justify-content:center;
+  gap:14px;
+  padding:44px 32px 40px;
+  overflow:hidden;
+}
+.gallery-divider::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(90deg,transparent,transparent 3px,rgba(160,130,80,.04) 3px,rgba(160,130,80,.04) 4px),
+    repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(160,130,80,.04) 3px,rgba(160,130,80,.04) 4px);
+  pointer-events:none;
 }
 .gdiv-line{
-  width:100%;
+  width:85%;
   height:1px;
-  background:linear-gradient(90deg,transparent,rgba(201,168,76,.6),transparent);
+  background:linear-gradient(90deg,transparent,rgba(120,88,40,.45),rgba(160,120,55,.7),rgba(120,88,40,.45),transparent);
+  position:relative;
+}
+.gdiv-line::after{
+  content:'';
+  position:absolute;
+  top:2px;left:10%;right:10%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(120,88,40,.2),transparent);
 }
 .gdiv-ornament{
   display:flex;
   align-items:center;
-  gap:10px;
-  color:var(--gold);
-  font-size:13px;
-  letter-spacing:.18em;
+  gap:14px;
   white-space:nowrap;
+  flex-wrap:nowrap;
 }
 .gdiv-ornament span{
   font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:clamp(11px,3.2vw,13px);
+  font-size:clamp(22px,5.5vw,38px);
   font-style:italic;
-  color:rgba(201,168,76,.75);
-  letter-spacing:.15em;
+  font-weight:600;
+  color:#5a3e1b;
+  letter-spacing:.12em;
   text-transform:uppercase;
+  text-shadow:0 1px 3px rgba(255,245,220,.8), 0 2px 8px rgba(180,140,60,.2);
+  line-height:1.1;
 }
 .gdiv-diamond{
-  width:6px;height:6px;
-  border:1px solid rgba(201,168,76,.7);
+  width:7px;height:7px;
+  border:1.5px solid rgba(120,88,40,.65);
   transform:rotate(45deg);
   flex-shrink:0;
+  background:rgba(200,170,100,.25);
 }
 .gdiv-diamond.lg{
-  width:9px;height:9px;
-  background:rgba(201,168,76,.2);
+  width:11px;height:11px;
+  border:1.5px solid rgba(120,88,40,.75);
+  background:rgba(180,140,60,.35);
 }
 .carousel-wrap{
   position:relative;
