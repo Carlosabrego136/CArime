@@ -387,6 +387,78 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .pg-frame::after{bottom:7px;right:7px;border-width:0 1px 1px 0}
 
 /* =========================================================
+   CARRUSEL PAISAJE
+   ========================================================= */
+.carousel-wrap{
+  position:relative;
+  background:#0e0c09;
+  padding:0 0 36px;
+  overflow:hidden;
+}
+.car-track{
+  display:flex;
+  transition:transform .45s cubic-bezier(.25,.46,.45,.94);
+}
+.car-slide{
+  min-width:100%;
+  display:none;
+}
+.car-slide.active{display:block}
+.car-img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+.car-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-60%);
+  width:44px;height:44px;
+  border:1.5px solid rgba(201,168,76,.5);
+  border-radius:50%;
+  background:rgba(0,0,0,.45);
+  color:var(--gold);
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;
+  backdrop-filter:blur(4px);
+  z-index:10;
+}
+.car-btn:hover{background:rgba(201,168,76,.2);border-color:var(--gold)}
+.car-prev{left:12px}
+.car-next{right:12px}
+.car-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:14px;
+}
+.car-dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:rgba(201,168,76,.3);
+  cursor:pointer;
+  transition:background .3s,transform .3s;
+}
+.car-dot.active{background:var(--gold);transform:scale(1.3)}
+.car-caption{
+  text-align:center;
+  padding:18px 24px 0;
+}
+.car-caption-text{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(14px,4vw,18px);
+  color:rgba(201,168,76,.85);
+  letter-spacing:.08em;
+  font-style:italic;
+  margin:0;
+  line-height:1.6;
+}
+
+/* =========================================================
    LIGHTBOX
    ========================================================= */
 #lb{position:fixed;inset:0;z-index:3000;background:rgba(4,3,1,.97);display:none;flex-direction:column;align-items:center;justify-content:center;touch-action:none}
@@ -796,13 +868,8 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
-      <!-- ROW B: wide landscape (mountain view) spanning 2 cols -->
-      <div class="pg-item" style="grid-column:span 2;aspect-ratio:16/9" data-idx="3">
-        <img class="pg-img" src="assests/on-horse-mountain-view.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 30%">
-        <div class="pg-ov"></div><div class="pg-frame"></div>
-      </div>
-      <!-- small square right of wide -->
-      <div class="pg-item" style="grid-row:span 1" data-idx="4">
+      <!-- ROW B: on-horse-touching-hat full width -->
+      <div class="pg-item" style="grid-column:span 3;aspect-ratio:16/7" data-idx="3">
         <img class="pg-img" src="assests/on-horse-touching-hat.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
@@ -821,12 +888,28 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
-      <!-- ROW D (completes ROW C tall right): wide left 2 cols -->
-      <div class="pg-item" style="grid-column:span 2;aspect-ratio:2/1" data-idx="8">
-        <img class="pg-img" src="assests/sitting-baby-goat.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 30%">
-        <div class="pg-ov"></div><div class="pg-frame"></div>
-      </div>
+    </div>
+  </div>
 
+  <!-- CARRUSEL PAISAJE -->
+  <div class="carousel-wrap" id="carouselWrap">
+    <div class="car-track" id="carTrack">
+      <div class="car-slide active" id="carSlide0">
+        <img class="car-img" src="assests/on-horse-mountain-view.jpg" alt="Vista en la montaña" loading="lazy">
+      </div>
+      <div class="car-slide" id="carSlide1">
+        <img class="car-img" src="assests/sitting-baby-goat.jpg" alt="Momentos especiales" loading="lazy">
+      </div>
+    </div>
+    <button class="car-btn car-prev" id="carPrev" aria-label="Anterior">&#8249;</button>
+    <button class="car-btn car-next" id="carNext" aria-label="Siguiente">&#8250;</button>
+    <div class="car-dots">
+      <span class="car-dot active" data-i="0"></span>
+      <span class="car-dot" data-i="1"></span>
+    </div>
+    <div class="car-caption">
+      <p class="car-caption-text" id="capText0">✦ Libre como el viento, hermosa como el campo ✦</p>
+      <p class="car-caption-text" id="capText1" style="display:none">♡ Cada momento contigo es un regalo del cielo ♡</p>
     </div>
   </div>
 
@@ -1208,6 +1291,34 @@ function lbRender(anim){
 }
 
 document.body.style.overflow='hidden';
+
+/* ── Carrusel ── */
+(function(){
+  const slides = document.querySelectorAll('.car-slide');
+  const dots   = document.querySelectorAll('.car-dot');
+  const caps   = [document.getElementById('capText0'), document.getElementById('capText1')];
+  let cur = 0;
+  function goTo(n){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    caps[cur].style.display='none';
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    caps[cur].style.display='';
+  }
+  document.getElementById('carPrev').addEventListener('click', ()=>goTo(cur-1));
+  document.getElementById('carNext').addEventListener('click', ()=>goTo(cur+1));
+  dots.forEach(d=>d.addEventListener('click', ()=>goTo(+d.dataset.i)));
+  /* swipe */
+  let sx=0;
+  const wrap = document.getElementById('carouselWrap');
+  wrap.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  wrap.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-sx;
+    if(Math.abs(dx)>40) goTo(dx<0?cur+1:cur-1);
+  },{passive:true});
+})();
 </script>
 </body>
 </html>
