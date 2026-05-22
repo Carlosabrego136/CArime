@@ -389,6 +389,46 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 /* =========================================================
    CARRUSEL PAISAJE
    ========================================================= */
+.gallery-divider{
+  background:#0e0c09;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  padding:32px 24px 28px;
+}
+.gdiv-line{
+  width:100%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,.6),transparent);
+}
+.gdiv-ornament{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--gold);
+  font-size:13px;
+  letter-spacing:.18em;
+  white-space:nowrap;
+}
+.gdiv-ornament span{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(11px,3.2vw,13px);
+  font-style:italic;
+  color:rgba(201,168,76,.75);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.gdiv-diamond{
+  width:6px;height:6px;
+  border:1px solid rgba(201,168,76,.7);
+  transform:rotate(45deg);
+  flex-shrink:0;
+}
+.gdiv-diamond.lg{
+  width:9px;height:9px;
+  background:rgba(201,168,76,.2);
+}
 .carousel-wrap{
   position:relative;
   background:#0e0c09;
@@ -889,6 +929,21 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
       </div>
 
     </div>
+  </div>
+
+  <!-- DIVISOR GALERÍA → CARRUSEL -->
+  <div class="gallery-divider">
+    <div class="gdiv-line"></div>
+    <div class="gdiv-ornament">
+      <div class="gdiv-diamond"></div>
+      <div class="gdiv-diamond"></div>
+      <div class="gdiv-diamond lg"></div>
+      <span>Momentos que duran para siempre</span>
+      <div class="gdiv-diamond lg"></div>
+      <div class="gdiv-diamond"></div>
+      <div class="gdiv-diamond"></div>
+    </div>
+    <div class="gdiv-line"></div>
   </div>
 
   <!-- CARRUSEL PAISAJE -->
