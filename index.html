@@ -119,15 +119,26 @@ body{background:#deb87a;font-family:'Lato',sans-serif;overflow-x:hidden}
 
 /* ---- WAX SEAL ---- */
 .wax{
-  position:absolute;bottom:-26px;left:50%;
+  position:absolute;bottom:-46px;left:50%;
   transform:translateX(-50%);
-  width:clamp(54px,16vw,68px);
+  width:clamp(90px,26vw,115px);
   z-index:10;
   animation:sealGlow 3s ease-in-out infinite alternate;
   transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .45s ease;
 }
 @keyframes sealGlow{from{filter:drop-shadow(0 0 8px rgba(201,168,76,.4))}to{filter:drop-shadow(0 0 24px rgba(201,168,76,.95))}}
 .wax.hide{transform:translateX(-50%) scale(0) rotate(25deg)!important;opacity:0}
+
+/* ---- LOGO ARRIBA DEL SOBRE ---- */
+#env-logo{
+  display:block;
+  width:clamp(160px,52vw,220px);
+  margin:0 auto 18px auto;
+  mix-blend-mode:multiply;
+  filter:drop-shadow(0 4px 18px rgba(201,168,76,.55));
+  animation:fadeUp .9s ease 1.2s both;
+  pointer-events:none;
+}
 
 /* ---- EXIT animation ---- */
 .env-wrap.exit{
@@ -851,6 +862,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
   <div class="dust" id="dust"></div>
 
   <div class="env-scene-inner">
+    <img id="env-logo" src="assests/LOGO3.jpg" alt="Logo Camila">
     <div class="env-wrap" id="envWrap" onclick="openEnv()">
 
       <!-- ENVELOPE BODY -->
