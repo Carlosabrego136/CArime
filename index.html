@@ -627,7 +627,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   position:absolute;
   left:50%;top:0;bottom:0;
   width:1.5px;
-  background:linear-gradient(180deg,transparent,rgba(201,168,76,.55) 8%,rgba(201,168,76,.55) 92%,transparent);
+  background:linear-gradient(180deg,transparent,rgba(201,168,76,.4) 15%,rgba(74,111,165,.5) 50%,rgba(201,168,76,.4) 85%,transparent);
   transform:translateX(-50%);
 }
 .tl-item{
@@ -653,6 +653,14 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
     0 4px 20px rgba(0,0,0,.18);
   margin-bottom:14px;
   flex-shrink:0;
+}
+/* royal blue dots — alternating */
+.tl-item:nth-child(even) .tl-dot{
+  background:linear-gradient(135deg,#4a6fa5,#2d4f82);
+  box-shadow:
+    0 0 0 6px rgba(74,111,165,.20),
+    0 0 0 12px rgba(45,79,130,.08),
+    0 4px 20px rgba(0,0,0,.22);
 }
 /* text block below dot */
 .tl-card{
@@ -744,10 +752,10 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
    ========================================================= */
 .rsvp-btns{display:flex;flex-direction:column;gap:14px;margin-top:32px;align-items:center}
 .rbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 30px;border-radius:3px;font-family:'Lato',sans-serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;transition:all .3s;width:100%;max-width:320px}
-.rbtn-p{background:rgba(0,0,0,.35);color:#fff8ee;border:1.5px solid rgba(255,240,200,.45)}
-.rbtn-p:hover{background:rgba(0,0,0,.5);transform:translateY(-2px)}
-.rbtn-s{background:transparent;border:1.5px solid rgba(255,240,200,.45);color:#fff8ee}
-.rbtn-s:hover{background:rgba(0,0,0,.15);transform:translateY(-2px)}
+.rbtn-p{background:linear-gradient(135deg,#3a5a8a,#2a4570);color:#fff8ee;border:1.5px solid rgba(180,210,255,.25);box-shadow:0 4px 18px rgba(30,50,100,.28)}
+.rbtn-p:hover{background:linear-gradient(135deg,#4a6a9a,#3a5580);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,50,100,.35)}
+.rbtn-s{background:transparent;border:1.5px solid rgba(74,111,165,.55);color:#c8deff}
+.rbtn-s:hover{background:rgba(74,111,165,.12);transform:translateY(-2px)}
 .cash-note{margin-top:28px;font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.8vw,21px);color:#fff8ee;letter-spacing:.06em;font-style:italic;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.25)}
 
 /* COUNTDOWN & CALENDAR */
