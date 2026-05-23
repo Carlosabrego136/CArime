@@ -748,12 +748,12 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
    RSVP
    ========================================================= */
 .rsvp-btns{display:flex;flex-direction:column;gap:14px;margin-top:32px;align-items:center}
-.rbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;border-radius:3px;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;transition:all .3s;width:100%;max-width:320px}
-.rbtn-p{background:var(--gold);color:var(--dark)}
-.rbtn-p:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
-.rbtn-s{background:transparent;border:1px solid var(--gold);color:var(--gold)}
-.rbtn-s:hover{background:rgba(201,168,76,.1);transform:translateY(-2px)}
-.cash-note{margin-top:22px;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,19px);color:var(--gold-light);letter-spacing:.06em;font-style:italic;font-weight:400}
+.rbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 30px;border-radius:3px;font-family:'Lato',sans-serif;font-size:12px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;transition:all .3s;width:100%;max-width:320px}
+.rbtn-p{background:rgba(0,0,0,.35);color:#fff8ee;border:1.5px solid rgba(255,240,200,.45)}
+.rbtn-p:hover{background:rgba(0,0,0,.5);transform:translateY(-2px)}
+.rbtn-s{background:transparent;border:1.5px solid rgba(255,240,200,.45);color:#fff8ee}
+.rbtn-s:hover{background:rgba(0,0,0,.15);transform:translateY(-2px)}
+.cash-note{margin-top:28px;font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.8vw,21px);color:#fff8ee;letter-spacing:.06em;font-style:italic;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.25)}
 
 /* COUNTDOWN & CALENDAR */
 .countdown-section{
@@ -867,8 +867,8 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align:center}
 .ft-name{font-family:'Cinzel Decorative',cursive;font-size:clamp(24px,7vw,50px);color:var(--gold);margin-bottom:16px;text-shadow:0 0 40px rgba(201,168,76,.3)}
 .ft-div{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 20px}
-.ft-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,4.5vw,20px);color:rgba(255,240,200,.85);text-shadow:0 1px 6px rgba(0,0,0,.4)}
-.ft-love{margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(14px,4vw,17px);color:rgba(255,230,180,.65);letter-spacing:.04em}
+.ft-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,4.8vw,22px);color:#fff8ee;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.3);letter-spacing:.04em}
+.ft-love{margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4.2vw,18px);color:rgba(255,240,200,.82);letter-spacing:.04em;text-shadow:0 1px 4px rgba(0,0,0,.25)}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
@@ -1395,10 +1395,15 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
 
   <!-- FOOTER -->
   <footer style="background:#d4a054;padding:clamp(28px,6vw,44px) 24px 32px;text-align:center;position:relative;z-index:2">
-    <div class="ft-name" style="font-size:clamp(18px,5vw,32px)">Camila Curiel</div>
-    <div class="ft-div"></div>
-    <p class="ft-sub" data-i18n="footer-sub">Mis Quinceañeros · 26 Septiembre 2026</p>
-    <p class="ft-love" data-i18n="footer-thanks">Con todo mi amor, gracias por acompañarme ♡</p>
+    <div style="width:80%;max-width:280px;margin:0 auto 24px;display:flex;align-items:center;gap:10px">
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,240,200,.6))"></div>
+      <span style="color:rgba(255,220,180,.85);font-size:16px;letter-spacing:.3em">♡ ♡ ♡</span>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(255,240,200,.6),transparent)"></div>
+    </div>
+    <div class="ft-name" style="color:#fff8ee;text-shadow:0 2px 12px rgba(0,0,0,.3)">Camila Curiel</div>
+    <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,240,200,.5),transparent);margin:14px auto 18px"></div>
+    <p class="ft-sub" style="color:#fff8ee;font-size:clamp(17px,4.8vw,22px)" data-i18n="footer-sub">Mis Quinceañeros · 26 Septiembre 2026</p>
+    <p class="ft-love" style="color:rgba(255,245,220,.85);font-size:clamp(15px,4.2vw,18px)" data-i18n="footer-thanks">Con todo mi amor, gracias por acompañarme ♡</p>
   </footer>
 
 </div><!-- /invitation -->
