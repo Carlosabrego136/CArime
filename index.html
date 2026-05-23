@@ -1408,8 +1408,21 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
   </div>
 
   <!-- FAMILY -->
-  <section class="sec-cream">
-    <div class="si">
+  <section class="sec-cream" style="position:relative;overflow:hidden">
+
+    <!-- líneas X azul royal -->
+    <div style="pointer-events:none;position:absolute;top:0;left:0;right:0;bottom:0;z-index:0;overflow:hidden">
+      <div style="position:absolute;top:8%;left:-5%;width:115%;height:6px;
+        background:linear-gradient(90deg,transparent 0%,rgba(74,111,165,.08) 15%,rgba(74,111,165,.35) 40%,rgba(138,175,216,.48) 50%,rgba(74,111,165,.35) 60%,rgba(74,111,165,.08) 85%,transparent 100%);
+        transform:rotate(28deg);transform-origin:0 0;
+        filter:blur(1.5px);box-shadow:0 0 14px rgba(45,79,130,.2)"></div>
+      <div style="position:absolute;top:8%;right:-5%;width:115%;height:6px;
+        background:linear-gradient(90deg,transparent 0%,rgba(74,111,165,.08) 15%,rgba(74,111,165,.35) 40%,rgba(138,175,216,.48) 50%,rgba(74,111,165,.35) 60%,rgba(74,111,165,.08) 85%,transparent 100%);
+        transform:rotate(-28deg);transform-origin:100% 0;
+        filter:blur(1.5px);box-shadow:0 0 14px rgba(45,79,130,.2)"></div>
+    </div>
+
+    <div class="si" style="position:relative;z-index:1">
       <div class="slbl rv" data-i18n="special2">Con Amor</div>
       <h2 class="stit rv d1" data-i18n="fam-title">Familia</h2>
       <div class="gline rv d2"></div>
