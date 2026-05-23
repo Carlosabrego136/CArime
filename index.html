@@ -330,6 +330,8 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .sec-blue .slbl{color:rgba(255,240,200,.9)}
 .sec-blue .stit{color:#fff8ee}
 .sec-blue .btxt{color:rgba(255,245,220,.92)}
+/* itinerary cinematic override */
+.sec-itin{background:linear-gradient(160deg,#0d1f3c 0%,#1a3a6b 38%,#b8822a 68%,#c49040 100%)!important}
 
 /* =========================================================
    CEREMONY & VENUE – location maps
@@ -1205,22 +1207,33 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
   </div>
 
   <!-- ITINERARY -->
-  <section class="sec-blue" style="position:relative;overflow:hidden">
+  <section class="sec-blue sec-itin" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#d4a054 0%,#d4a054 5%,#a06a2a 18%,#2d4f82 35%,#0d1f3c 50%,#2d4f82 65%,#a06a2a 82%,#d4a054 95%,#d4a054 100%)">
 
-    <!-- fondo cinematográfico azul royal -->
-    <div style="pointer-events:none;position:absolute;inset:0;z-index:0">
-      <!-- mancha grande izquierda -->
-      <div style="position:absolute;top:-10%;left:-20%;width:70%;height:60%;
-        background:radial-gradient(ellipse at 30% 40%,rgba(30,60,120,.38) 0%,transparent 70%);
-        border-radius:50%;transform:rotate(-15deg)"></div>
-      <!-- mancha derecha media -->
-      <div style="position:absolute;top:30%;right:-15%;width:55%;height:50%;
-        background:radial-gradient(ellipse at 70% 50%,rgba(45,79,130,.30) 0%,transparent 68%);
-        border-radius:50%;transform:rotate(10deg)"></div>
-      <!-- destello fondo abajo -->
-      <div style="position:absolute;bottom:-5%;left:50%;transform:translateX(-50%);width:80%;height:40%;
-        background:radial-gradient(ellipse at 50% 80%,rgba(25,50,110,.25) 0%,transparent 65%)"></div>
+    <!-- líneas diagonales que se cruzan con brillo -->
+    <div style="pointer-events:none;position:absolute;top:0;left:0;right:0;bottom:0;z-index:0;overflow:hidden">
+      <div style="position:absolute;top:8%;left:-5%;width:115%;height:6px;
+        background:linear-gradient(90deg,transparent 0%,rgba(255,240,200,.08) 15%,rgba(255,240,200,.32) 40%,rgba(255,248,220,.45) 50%,rgba(255,240,200,.32) 60%,rgba(255,240,200,.08) 85%,transparent 100%);
+        transform:rotate(28deg);transform-origin:0 0;
+        filter:blur(1.5px);box-shadow:0 0 12px rgba(255,240,200,.15)"></div>
+      <div style="position:absolute;top:8%;right:-5%;width:115%;height:6px;
+        background:linear-gradient(90deg,transparent 0%,rgba(255,240,200,.08) 15%,rgba(255,240,200,.32) 40%,rgba(255,248,220,.45) 50%,rgba(255,240,200,.32) 60%,rgba(255,240,200,.08) 85%,transparent 100%);
+        transform:rotate(-28deg);transform-origin:100% 0;
+        filter:blur(1.5px);box-shadow:0 0 12px rgba(255,240,200,.15)"></div>
     </div>
+    <div style="pointer-events:none;position:absolute;top:-30%;left:-10%;width:65%;height:80%;
+      background:radial-gradient(ellipse at 30% 20%,rgba(138,175,216,.18) 0%,transparent 60%);
+      z-index:0"></div>
+
+    <!-- brillo central profundo — el corazón azul -->
+    <div style="pointer-events:none;position:absolute;top:20%;left:50%;transform:translateX(-50%);
+      width:100%;height:60%;
+      background:radial-gradient(ellipse at 50% 50%,rgba(25,65,140,.22) 0%,transparent 65%);
+      z-index:0"></div>
+
+    <!-- línea de luz diagonal — efecto cinemático -->
+    <div style="pointer-events:none;position:absolute;top:0;left:0;right:0;bottom:0;
+      background:linear-gradient(135deg,rgba(74,111,165,.08) 0%,transparent 40%,rgba(201,168,76,.04) 100%);
+      z-index:0"></div>
 
     <div class="si" style="position:relative;z-index:1">
       <div class="slbl rv" data-i18n="itin-slbl">El Gran Día</div>
