@@ -1304,7 +1304,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
 
   <!-- PARALLAX STRIP 3 -->
   <div class="pstrip" id="strip3">
-    <img class="pstrip-img" id="simg3" src="assests/next-2-horse-smiling.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 5%">
+    <img class="pstrip-img" id="simg3" src="assests/boot.jpg" alt="" loading="lazy" decoding="async" style="object-fit:cover;object-position:center center;transform:none;top:0;height:100%">
     <div class="pstrip-ov" style="background:rgba(8,5,3,.4)">
       <div class="pstrip-txt" style="font-size:clamp(14px,4.5vw,26px);font-style:italic">♡ Que este día quede grabado<br>en tu corazón para siempre ♡</div>
     </div>
@@ -1450,7 +1450,6 @@ function initParallax(){
   const strips=[
     {img:document.getElementById('simg1'),wrap:document.getElementById('strip1'),speed:.18},
     {img:document.getElementById('simg2'),wrap:document.getElementById('strip2'),speed:.16},
-    {img:document.getElementById('simg3'),wrap:document.getElementById('strip3'),speed:.17},
   ];
 
   // Smooth lerp target
