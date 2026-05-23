@@ -15,7 +15,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#deb87a;font-family:'Lato',sans-serif;overflow-x:hidden}
+body{background:#b8813a;font-family:'Lato',sans-serif;overflow-x:hidden}
 
 /* =========================================================
    ENVELOPE SCENE
@@ -28,8 +28,6 @@ body{background:#deb87a;font-family:'Lato',sans-serif;overflow-x:hidden}
 }
 #env-scene.fade-out{animation:sceneFade 1s ease forwards}
 @keyframes sceneFade{0%{opacity:1}100%{opacity:0;visibility:hidden;pointer-events:none}}
-
-/* stars */
 .stars{position:absolute;inset:0;pointer-events:none}
 .star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d) ease-in-out var(--dl) infinite alternate}
 @keyframes twinkle{0%{opacity:.04}100%{opacity:.75}}
@@ -117,28 +115,23 @@ body{background:#deb87a;font-family:'Lato',sans-serif;overflow-x:hidden}
 .ltr-name{font-family:'Cinzel Decorative',cursive;font-size:clamp(13px,4vw,16px);color:#3d2008;letter-spacing:.1em;line-height:1.4;font-weight:700}
 .ltr-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(13px,3.5vw,15px);color:#5a3010;margin-top:3px;letter-spacing:.07em;font-weight:700}
 
-/* ---- WAX SEAL ---- */
+/* ---- WAX SEAL — centrado en el sobre ---- */
 .wax{
-  position:absolute;bottom:-46px;left:50%;
-  transform:translateX(-50%);
-  width:clamp(90px,26vw,115px);
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:clamp(70px,20vw,88px);
   z-index:10;
   animation:sealGlow 3s ease-in-out infinite alternate;
   transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .45s ease;
+  border-radius:50%;
+  object-fit:cover;
 }
 @keyframes sealGlow{from{filter:drop-shadow(0 0 8px rgba(201,168,76,.4))}to{filter:drop-shadow(0 0 24px rgba(201,168,76,.95))}}
-.wax.hide{transform:translateX(-50%) scale(0) rotate(25deg)!important;opacity:0}
+.wax.hide{transform:translate(-50%,-50%) scale(0) rotate(25deg)!important;opacity:0}
 
-/* ---- LOGO ARRIBA DEL SOBRE ---- */
-#env-logo{
-  display:block;
-  width:clamp(160px,52vw,220px);
-  margin:0 auto 18px auto;
-  mix-blend-mode:multiply;
-  filter:drop-shadow(0 4px 18px rgba(201,168,76,.55));
-  animation:fadeUp .9s ease 1.2s both;
-  pointer-events:none;
-}
+/* ---- LOGO — oculto, ya no se usa arriba del sobre ---- */
+#env-logo{display:none}
 
 /* ---- EXIT animation ---- */
 .env-wrap.exit{
@@ -329,26 +322,26 @@ body{background:#deb87a;font-family:'Lato',sans-serif;overflow-x:hidden}
    ========================================================= */
 section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);overflow:hidden}
 .si{max-width:700px;margin:0 auto;text-align:center}
-.slbl{font-family:'Lato',sans-serif;font-weight:800;font-size:13px;letter-spacing:.44em;text-transform:uppercase;color:#7a4a10;margin-bottom:14px}
-.stit{font-family:'Cinzel Decorative',cursive;font-size:clamp(22px,6vw,36px);line-height:1.3;color:#3d2008;margin-bottom:18px;font-weight:700;text-shadow:0 1px 6px rgba(255,210,130,.35)}
-.gline{width:80px;height:1.5px;background:linear-gradient(90deg,transparent,#8B5E1A,transparent);margin:0 auto 28px}
-.btxt{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,22px);line-height:1.9;color:#3d2008;font-weight:700}
-.sec-cream{background:#deb87a}
-.sec-white{background:#deb87a}
-.sec-blue{background:#deb87a}
-.sec-blue .slbl{color:rgba(80,45,10,.85)}
-.sec-blue .stit{color:#3d2008}
-.sec-blue .btxt{color:rgba(55,30,5,.9)}
+.slbl{font-family:'Lato',sans-serif;font-weight:800;font-size:13px;letter-spacing:.44em;text-transform:uppercase;color:#fff8e8;margin-bottom:14px;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.stit{font-family:'Cinzel Decorative',cursive;font-size:clamp(22px,6vw,36px);line-height:1.3;color:#fff8e8;margin-bottom:18px;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.45),0 1px 4px rgba(0,0,0,.5)}
+.gline{width:80px;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);margin:0 auto 28px}
+.btxt{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,22px);line-height:1.9;color:#fff0d0;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.3)}
+.sec-cream{background:#c49a5a}
+.sec-white{background:#c49a5a}
+.sec-blue{background:#c49a5a}
+.sec-blue .slbl{color:rgba(255,240,200,.9)}
+.sec-blue .stit{color:#fff8ee}
+.sec-blue .btxt{color:rgba(255,245,220,.92)}
 
 /* =========================================================
    CEREMONY & VENUE – location maps
    ========================================================= */
 .loc-card{
   margin-top:30px;
-  border:1px solid rgba(201,168,76,.35);
+  border:1px solid rgba(201,168,76,.5);
   border-radius:8px;
   overflow:hidden;
-  background:rgba(255,255,255,.04);
+  background:rgba(0,0,0,.18);
 }
 .loc-info{
   padding:20px 22px;
@@ -356,25 +349,26 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 }
 .loc-label{
   font-family:'Lato',sans-serif;font-size:13px;letter-spacing:.35em;text-transform:uppercase;
-  color:#7a4a10;margin-bottom:10px;font-weight:800;
+  color:var(--gold-light);margin-bottom:10px;font-weight:700;
 }
 .loc-name{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(16px,4.5vw,20px);
-  color:#3d2008;
+  color:#fff8ee;
   margin-bottom:6px;line-height:1.3;font-weight:700;
+  text-shadow:0 1px 8px rgba(0,0,0,.4);
 }
 .loc-addr{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(17px,4.5vw,20px);
-  color:#3d2008;line-height:1.65;font-weight:700;
+  color:rgba(255,240,200,.9);line-height:1.65;font-weight:400;
 }
 .loc-time{
   display:inline-block;
   margin-top:12px;
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(16px,4.5vw,20px);
-  color:#3d2008;
+  color:var(--gold-light);
   letter-spacing:.08em;font-weight:700;
 }
 /* map embed */
@@ -396,11 +390,11 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 /* =========================================================
    PHOTO GALLERY
    ========================================================= */
-.gallery-section{background:#deb87a;padding:clamp(50px,10vw,80px) 0 0}
+.gallery-section{background:#b8813a;padding:clamp(50px,10vw,80px) 0 0}
 .gallery-header{text-align:center;padding:0 20px 36px}
-.gallery-header .slbl{color:#7a4a10;font-weight:800;font-size:13px}
-.gallery-header .stit{color:#3d2008;font-weight:700;text-shadow:0 1px 4px rgba(255,210,130,.3)}
-.gallery-header .gline{background:linear-gradient(90deg,transparent,#8B5E1A,transparent)}
+.gallery-header .slbl{color:#fff8e8;font-weight:800;font-size:13px;text-shadow:0 1px 6px rgba(0,0,0,.3)}
+.gallery-header .stit{color:#fff8ee;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.gallery-header .gline{background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
 
 .photo-grid{
   display:grid;
@@ -412,7 +406,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   aspect-ratio:3/4;
   overflow:hidden;
   cursor:pointer;
-  background:#deb87a;
+  background:#b8813a;
 }
 .pg-item:first-child{grid-row:span 2;aspect-ratio:unset}
 .pg-item.wide{grid-column:span 2;aspect-ratio:2/1.4}
@@ -593,13 +587,13 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .car-caption-text{
   font-family:'Cormorant Garamond',Georgia,serif;
   font-size:clamp(16px,4.5vw,22px);
-  color:#3d2008;
+  color:#fff8ee;
   letter-spacing:.08em;
   font-style:italic;
-  font-weight:600;
+  font-weight:400;
   margin:0;
   line-height:1.6;
-  text-shadow:0 1px 4px rgba(255,230,180,.6);
+  text-shadow:0 1px 8px rgba(0,0,0,.45);
 }
 
 /* =========================================================
@@ -677,22 +671,24 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   font-size:16px;
   letter-spacing:.35em;
   text-transform:uppercase;
-  color:#6b3a10;
+  color:var(--gold-light);
   margin-bottom:6px;
   font-weight:300;
+  text-shadow:0 1px 4px rgba(0,0,0,.3);
 }
 .tl-title{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(17px,5vw,21px);
-  color:#4a2508;
+  color:#fff8ee;
   margin-bottom:6px;
   line-height:1.3;
   font-weight:400;
+  text-shadow:0 1px 8px rgba(0,0,0,.4);
 }
 .tl-desc{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(17px,4.5vw,20px);
-  color:#6b4020;
+  color:rgba(255,240,200,.88);
   font-style:italic;
   line-height:1.55;
   font-weight:300;
@@ -735,19 +731,19 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   text-align:center;
 }
 .no-blue{
-  margin-top:28px;background:rgba(255,255,255,.25);
-  border:1px solid rgba(100,55,10,.3);border-radius:6px;
+  margin-top:28px;background:rgba(0,0,0,.2);
+  border:1px solid rgba(201,168,76,.35);border-radius:6px;
   padding:18px 22px;
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(17px,4.5vw,20px);
-  color:#3d2008;line-height:1.7;font-weight:700;
+  color:#fff8ee;line-height:1.7;font-weight:400;
 }
 
 /* =========================================================
    FAMILY
    ========================================================= */
 .nm-list{display:flex;flex-direction:column;gap:4px;margin-top:14px}
-.nm-list span{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,5.5vw,26px);color:#3d2008;font-weight:700;letter-spacing:.04em}
+.nm-list span{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,5.5vw,26px);color:#fff8ee;font-weight:400;letter-spacing:.04em;text-shadow:0 1px 6px rgba(0,0,0,.3)}
 
 /* =========================================================
    RSVP
@@ -758,30 +754,31 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .rbtn-p:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35)}
 .rbtn-s{background:transparent;border:1px solid var(--gold);color:var(--gold)}
 .rbtn-s:hover{background:rgba(201,168,76,.1);transform:translateY(-2px)}
-.cash-note{margin-top:22px;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,19px);color:#3d2008;letter-spacing:.06em;font-style:italic;font-weight:700}
+.cash-note{margin-top:22px;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,19px);color:var(--gold-light);letter-spacing:.06em;font-style:italic;font-weight:400}
 
 /* COUNTDOWN & CALENDAR */
 .countdown-section{
-  background:#deb87a;
+  background:#b8813a;
   padding:clamp(50px,10vw,80px) 24px;
   text-align:center;
 }
 .cd-title{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(13px,3.5vw,16px);
-  color:#3d2008;
+  color:#fff8ee;
   letter-spacing:.35em;
   text-transform:uppercase;
   margin-bottom:8px;
   font-weight:700;
+  text-shadow:0 1px 8px rgba(0,0,0,.4);
 }
 .cd-subtitle{
   font-family:'Cormorant Garamond',serif;
   font-style:italic;
   font-size:clamp(18px,5vw,26px);
-  color:#3d2008;
+  color:rgba(255,240,200,.9);
   margin-bottom:36px;
-  font-weight:600;
+  font-weight:400;
 }
 .cd-grid{
   display:flex;
@@ -790,28 +787,28 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   margin-bottom:40px;
 }
 .cd-box{
-  background:rgba(255,255,255,.25);
-  border:1px solid rgba(100,55,10,.3);
+  background:rgba(0,0,0,.22);
+  border:1px solid rgba(201,168,76,.4);
   border-radius:12px;
   padding:clamp(14px,4vw,22px) clamp(14px,4vw,26px);
   min-width:clamp(60px,18vw,90px);
   position:relative;
-  box-shadow:0 4px 16px rgba(80,40,5,.15);
+  box-shadow:0 4px 16px rgba(0,0,0,.2);
 }
 .cd-num{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(28px,9vw,52px);
-  color:#3d2008;
+  color:#fff8ee;
   line-height:1;
   font-weight:700;
-  text-shadow:0 1px 4px rgba(255,220,150,.4);
+  text-shadow:0 2px 12px rgba(0,0,0,.5);
 }
 .cd-lbl{
   font-family:'Lato',sans-serif;
   font-size:clamp(8px,2.5vw,11px);
   letter-spacing:.3em;
   text-transform:uppercase;
-  color:#7a4a10;
+  color:var(--gold-light);
   margin-top:6px;
   font-weight:700;
 }
@@ -826,9 +823,10 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   font-family:'Cormorant Garamond',serif;
   font-style:italic;
   font-size:clamp(16px,4.5vw,21px);
-  color:#3d2008;
+  color:#fff8ee;
   margin-bottom:20px;
-  font-weight:600;
+  font-weight:400;
+  text-shadow:0 1px 6px rgba(0,0,0,.3);
 }
 .cal-btns{
   display:flex;
@@ -854,17 +852,17 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   border:none;
 }
 .cal-btn-apple{
-  background:rgba(255,255,255,.35);
-  color:#3d2008;
-  border:1.5px solid rgba(100,55,10,.3);
-  box-shadow:0 4px 14px rgba(80,40,5,.15);
+  background:rgba(0,0,0,.22);
+  color:#fff8ee;
+  border:1.5px solid rgba(201,168,76,.4);
+  box-shadow:0 4px 14px rgba(0,0,0,.2);
 }
 .cal-btn-google{
   background:transparent;
-  border:1.5px solid rgba(80,40,5,.4);
-  color:#3d2008;
+  border:1.5px solid rgba(201,168,76,.4);
+  color:#fff8ee;
 }
-.cal-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(80,40,5,.2)}
+.cal-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.25)}
 
 /* FOOTER */
 footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align:center}
