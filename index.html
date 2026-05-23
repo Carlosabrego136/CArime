@@ -10,12 +10,12 @@
 <style>
 :root{
   --gold:#C9A84C;--gold-light:#E8D08A;--gold-pale:#F5EDD0;
-  --cream:#E8D5B0;--royal-blue:#5C3D1E;--rustic:#7A5C3A;
+  --cream:#FDF6E8;--royal-blue:#5C3D1E;--rustic:#7A5C3A;
   --rustic-light:#A0795A;--white:#fff;--dark:#2A1F14;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#c8a06a;font-family:'Lato',sans-serif;overflow-x:hidden}
+body{background:#deb87a;font-family:'Lato',sans-serif;overflow-x:hidden}
 
 /* =========================================================
    ENVELOPE SCENE
@@ -296,12 +296,12 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .stit{font-family:'Cinzel Decorative',cursive;font-size:clamp(22px,6vw,36px);line-height:1.3;color:#3d2008;margin-bottom:18px;font-weight:700;text-shadow:0 1px 6px rgba(255,210,130,.35)}
 .gline{width:80px;height:1.5px;background:linear-gradient(90deg,transparent,#8B5E1A,transparent);margin:0 auto 28px}
 .btxt{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.5vw,21px);line-height:1.9;color:#3d2008;font-weight:600}
-.sec-cream{background:linear-gradient(160deg,#e8d5b0 0%,#f0dfc0 50%,#e8d5b0 100%)}
-.sec-white{background:#ead9b5}
-.sec-blue{background:linear-gradient(160deg,#c8a06a 0%,#d4ac78 40%,#c8a06a 100%)}
-.sec-blue .slbl{color:rgba(80,45,10,.75)}
+.sec-cream{background:#deb87a}
+.sec-white{background:#deb87a}
+.sec-blue{background:#deb87a}
+.sec-blue .slbl{color:rgba(80,45,10,.85)}
 .sec-blue .stit{color:#3d2008}
-.sec-blue .btxt{color:rgba(60,35,8,.88)}
+.sec-blue .btxt{color:rgba(55,30,5,.9)}
 
 /* =========================================================
    CEREMONY & VENUE – location maps
@@ -359,7 +359,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 /* =========================================================
    PHOTO GALLERY
    ========================================================= */
-.gallery-section{background:#b8935a;padding:clamp(50px,10vw,80px) 0 0}
+.gallery-section{background:#deb87a;padding:clamp(50px,10vw,80px) 0 0}
 .gallery-header{text-align:center;padding:0 20px 36px}
 .gallery-header .slbl{color:rgba(201,168,76,.8)}
 .gallery-header .stit{color:var(--gold)}
@@ -375,7 +375,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   aspect-ratio:3/4;
   overflow:hidden;
   cursor:pointer;
-  background:#b8935a;
+  background:#deb87a;
 }
 .pg-item:first-child{grid-row:span 2;aspect-ratio:unset}
 .pg-item.wide{grid-column:span 2;aspect-ratio:2/1.4}
@@ -496,7 +496,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 }
 .carousel-wrap{
   position:relative;
-  background:#b8935a;
+  background:#deb87a;
   padding:0 0 36px;
   overflow:hidden;
 }
@@ -722,14 +722,14 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 
 /* COUNTDOWN & CALENDAR */
 .countdown-section{
-  background:linear-gradient(160deg,#3d2008 0%,#5a3010 50%,#3d2008 100%);
+  background:#deb87a;
   padding:clamp(50px,10vw,80px) 24px;
   text-align:center;
 }
 .cd-title{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(13px,3.5vw,16px);
-  color:#f0d9a0;
+  color:#3d2008;
   letter-spacing:.35em;
   text-transform:uppercase;
   margin-bottom:8px;
@@ -739,7 +739,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   font-family:'Cormorant Garamond',serif;
   font-style:italic;
   font-size:clamp(18px,5vw,26px);
-  color:#e8c87a;
+  color:#3d2008;
   margin-bottom:36px;
   font-weight:600;
 }
@@ -750,34 +750,34 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   margin-bottom:40px;
 }
 .cd-box{
-  background:linear-gradient(160deg,rgba(255,220,140,.12),rgba(255,200,80,.06));
-  border:1px solid rgba(200,165,80,.4);
+  background:rgba(255,255,255,.25);
+  border:1px solid rgba(100,55,10,.3);
   border-radius:12px;
   padding:clamp(14px,4vw,22px) clamp(14px,4vw,26px);
   min-width:clamp(60px,18vw,90px);
   position:relative;
-  box-shadow:0 4px 20px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,220,120,.15);
+  box-shadow:0 4px 16px rgba(80,40,5,.15);
 }
 .cd-num{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(28px,9vw,52px);
-  color:#f5e0a0;
+  color:#3d2008;
   line-height:1;
   font-weight:700;
-  text-shadow:0 0 20px rgba(200,160,60,.5);
+  text-shadow:0 1px 4px rgba(255,220,150,.4);
 }
 .cd-lbl{
   font-family:'Lato',sans-serif;
   font-size:clamp(8px,2.5vw,11px);
   letter-spacing:.3em;
   text-transform:uppercase;
-  color:rgba(240,210,130,.7);
+  color:#7a4a10;
   margin-top:6px;
-  font-weight:600;
+  font-weight:700;
 }
 .cd-sep{
   font-size:clamp(24px,7vw,42px);
-  color:rgba(200,160,60,.5);
+  color:rgba(80,40,5,.4);
   align-self:center;
   padding-bottom:18px;
   font-weight:300;
@@ -786,7 +786,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   font-family:'Cormorant Garamond',serif;
   font-style:italic;
   font-size:clamp(16px,4.5vw,21px);
-  color:#e8c87a;
+  color:#3d2008;
   margin-bottom:20px;
   font-weight:600;
 }
@@ -814,16 +814,17 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   border:none;
 }
 .cal-btn-apple{
-  background:linear-gradient(135deg,#f5e6c0,#e8c87a);
+  background:rgba(255,255,255,.35);
   color:#3d2008;
-  box-shadow:0 4px 18px rgba(200,160,60,.35);
+  border:1.5px solid rgba(100,55,10,.3);
+  box-shadow:0 4px 14px rgba(80,40,5,.15);
 }
 .cal-btn-google{
   background:transparent;
-  border:1.5px solid rgba(200,165,80,.6);
-  color:#f0d9a0;
+  border:1.5px solid rgba(80,40,5,.4);
+  color:#3d2008;
 }
-.cal-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,160,60,.4)}
+.cal-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(80,40,5,.2)}
 
 /* FOOTER */
 footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align:center}
@@ -1216,7 +1217,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
   </section>
 
   <!-- DRESS CODE -->
-  <section class="sec-blue" style="background:linear-gradient(160deg,#c8a06a 0%,#d4ac78 50%,#c8a06a 100%)">
+  <section class="sec-blue">
     <div class="si">
       <div class="slbl rv">Vestimenta</div>
       <h2 class="stit rv d1">Dress Code</h2>
