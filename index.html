@@ -1128,31 +1128,31 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" data-idx="1">
-        <img class="pg-img" src="assests/close-up-looking-away.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 18%">
+        <img class="pg-img" src="assests/next-2-horse-smiling.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
       <div class="pg-item" data-idx="2">
-        <img class="pg-img" src="assests/next-2-horse-smiling.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
+        <img class="pg-img" src="assests/walking-smiling-horse.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 18%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
       <!-- ROW B: on-horse-touching-hat full width -->
-      <div class="pg-item" style="grid-column:span 3;aspect-ratio:16/7" data-idx="4">
+      <div class="pg-item" style="grid-column:span 3;aspect-ratio:16/7" data-idx="3">
         <img class="pg-img" src="assests/on-horse-touching-hat.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
       <!-- ROW C: 2 stacked left | tall portrait right -->
-      <div class="pg-item" data-idx="5">
-        <img class="pg-img" src="assests/walking-smiling-horse.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 18%">
-        <div class="pg-ov"></div><div class="pg-frame"></div>
-      </div>
-      <div class="pg-item" data-idx="6">
+      <div class="pg-item" data-idx="4">
         <img class="pg-img" src="assests/petting-horse.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 20%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
-      <div class="pg-item" style="grid-row:span 2" data-idx="7">
-        <img class="pg-img" src="assests/next-2-horse-smiling.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
+      <div class="pg-item" data-idx="5">
+        <img class="pg-img" src="assests/sitting-baby-goat.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 20%">
+        <div class="pg-ov"></div><div class="pg-frame"></div>
+      </div>
+      <div class="pg-item" style="grid-row:span 2" data-idx="6">
+        <img class="pg-img" src="assests/on-horse-mountain-view.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
 
@@ -1394,17 +1394,13 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
     </div>
   </section>
 
-  <!-- BOOT – footer parallax backdrop -->
-  <div style="position:relative;overflow:hidden">
-    <div id="bootBg" style="position:absolute;inset:-20% 0;height:140%;background:url('assests/boot.jpg') center 35%/cover no-repeat;will-change:transform;z-index:0"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,5,3,.7) 0%,rgba(20,10,4,.82) 100%);z-index:1"></div>
-    <footer style="position:relative;z-index:2;background:transparent">
-    <div class="ft-name">Camila Curiel</div>
+  <!-- FOOTER -->
+  <footer style="background:#b8813a;padding:clamp(28px,6vw,44px) 24px 32px;text-align:center;position:relative;z-index:2">
+    <div class="ft-name" style="font-size:clamp(18px,5vw,32px)">Camila Curiel</div>
     <div class="ft-div"></div>
     <p class="ft-sub" data-i18n="footer-sub">Mis Quinceañeros · 26 Septiembre 2026</p>
     <p class="ft-love" data-i18n="footer-thanks">Con todo mi amor, gracias por acompañarme ♡</p>
   </footer>
-  </div><!-- /boot footer wrapper -->
 
 </div><!-- /invitation -->
 
@@ -1647,14 +1643,12 @@ function initReveal(){
 /* ===== LIGHTBOX ===== */
 const PHOTOS=[
   'assests/tree-standing-smile.jpg',
-  'assests/close-up-looking-away.jpg',
   'assests/next-2-horse-smiling.jpg',
-  'assests/on-horse-mountain-view.jpg',
-  'assests/on-horse-touching-hat.jpg',
   'assests/walking-smiling-horse.jpg',
+  'assests/on-horse-touching-hat.jpg',
   'assests/petting-horse.jpg',
-  'assests/next-2-horse-smiling.jpg',
   'assests/sitting-baby-goat.jpg',
+  'assests/on-horse-mountain-view.jpg',
 ];
 let lbIdx=0;
 function buildLightbox(){
