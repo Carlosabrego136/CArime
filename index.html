@@ -10,12 +10,12 @@
 <style>
 :root{
   --gold:#C9A84C;--gold-light:#E8D08A;--gold-pale:#F5EDD0;
-  --cream:#FAF6EE;--royal-blue:#5C3D1E;--rustic:#7A5C3A;
+  --cream:#E8D5B0;--royal-blue:#5C3D1E;--rustic:#7A5C3A;
   --rustic-light:#A0795A;--white:#fff;--dark:#2A1F14;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#0d0a07;font-family:'Lato',sans-serif;overflow-x:hidden}
+body{background:#c8a06a;font-family:'Lato',sans-serif;overflow-x:hidden}
 
 /* =========================================================
    ENVELOPE SCENE
@@ -273,13 +273,16 @@ body{background:#0d0a07;font-family:'Lato',sans-serif;overflow-x:hidden}
 }
 .pstrip-ov{
   position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:flex-end;justify-content:center;
+  background:linear-gradient(180deg,transparent 55%,rgba(8,4,1,.6) 100%);
+  padding-bottom:clamp(20px,5vw,36px);
 }
 .pstrip-txt{
   font-family:'Cinzel Decorative',cursive;
-  font-size:clamp(18px,6vw,38px);
-  color:#fff;text-align:center;
-  text-shadow:0 2px 20px rgba(0,0,0,.7),0 1px 6px rgba(0,0,0,.9);
+  font-size:clamp(16px,5vw,32px);
+  color:#c8a96e;
+  text-align:center;
+  text-shadow:0 2px 16px rgba(0,0,0,.9),0 1px 6px rgba(0,0,0,.95);
   letter-spacing:.1em;padding:0 24px;line-height:1.4;
 }
 
@@ -292,12 +295,12 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .stit{font-family:'Cinzel Decorative',cursive;font-size:clamp(22px,6vw,36px);line-height:1.3;color:var(--royal-blue);margin-bottom:18px}
 .gline{width:80px;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 28px}
 .btxt{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.5vw,21px);line-height:1.9;color:var(--rustic);font-weight:300}
-.sec-cream{background:var(--cream)}
-.sec-white{background:#fff}
-.sec-blue{background:linear-gradient(160deg,#3a2510 0%,#4e3018 40%,#3a2510 100%)}
-.sec-blue .slbl{color:rgba(232,208,138,.85)}
-.sec-blue .stit{color:var(--gold-light)}
-.sec-blue .btxt{color:rgba(255,240,210,.88)}
+.sec-cream{background:linear-gradient(160deg,#e8d5b0 0%,#f0dfc0 50%,#e8d5b0 100%)}
+.sec-white{background:#ead9b5}
+.sec-blue{background:linear-gradient(160deg,#c8a06a 0%,#d4ac78 40%,#c8a06a 100%)}
+.sec-blue .slbl{color:rgba(80,45,10,.75)}
+.sec-blue .stit{color:#3d2008}
+.sec-blue .btxt{color:rgba(60,35,8,.88)}
 
 /* =========================================================
    CEREMONY & VENUE – location maps
@@ -346,16 +349,16 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   opacity:.9;
 }
 /* For blue sections */
-.sec-blue .loc-card{background:rgba(255,255,255,.07);border-color:rgba(201,168,76,.25)}
-.sec-blue .loc-name{color:var(--gold-light)}
-.sec-blue .loc-addr{color:rgba(255,255,255,.8)}
-.sec-blue .loc-time{color:var(--gold-light)}
-.sec-blue .loc-label{color:rgba(232,208,138,.75)}
+.sec-blue .loc-card{background:rgba(255,255,255,.25);border-color:rgba(100,60,10,.3)}
+.sec-blue .loc-name{color:#3d2008}
+.sec-blue .loc-addr{color:rgba(60,35,8,.85)}
+.sec-blue .loc-time{color:#3d2008}
+.sec-blue .loc-label{color:rgba(80,45,10,.75)}
 
 /* =========================================================
    PHOTO GALLERY
    ========================================================= */
-.gallery-section{background:#0e0c09;padding:clamp(50px,10vw,80px) 0 0}
+.gallery-section{background:#b8935a;padding:clamp(50px,10vw,80px) 0 0}
 .gallery-header{text-align:center;padding:0 20px 36px}
 .gallery-header .slbl{color:rgba(201,168,76,.8)}
 .gallery-header .stit{color:var(--gold)}
@@ -371,7 +374,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   aspect-ratio:3/4;
   overflow:hidden;
   cursor:pointer;
-  background:#2a1e10;
+  background:#b8935a;
 }
 .pg-item:first-child{grid-row:span 2;aspect-ratio:unset}
 .pg-item.wide{grid-column:span 2;aspect-ratio:2/1.4}
@@ -492,7 +495,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 }
 .carousel-wrap{
   position:relative;
-  background:#0e0c09;
+  background:#b8935a;
   padding:0 0 36px;
   overflow:hidden;
 }
@@ -1105,7 +1108,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
   </section>
 
   <!-- DRESS CODE -->
-  <section class="sec-blue" style="background:linear-gradient(160deg,#3a2510 0%,#4e3018 50%,#3a2510 100%)">
+  <section class="sec-blue" style="background:linear-gradient(160deg,#c8a06a 0%,#d4ac78 50%,#c8a06a 100%)">
     <div class="si">
       <div class="slbl rv">Vestimenta</div>
       <h2 class="stit rv d1">Dress Code</h2>
