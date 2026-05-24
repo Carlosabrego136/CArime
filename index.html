@@ -1319,8 +1319,29 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
   </div>
 
   <!-- DRESS CODE -->
-  <section class="sec-blue">
-    <div class="si">
+  <section class="sec-blue" style="position:relative;overflow:hidden">
+    <!-- líneas diagonales decorativas de fondo -->
+    <div style="pointer-events:none;position:absolute;top:0;left:0;right:0;bottom:0;z-index:0;overflow:hidden">
+      <!-- línea diagonal 1 -->
+      <div style="position:absolute;top:20%;left:-15%;width:140%;height:3px;
+        background:linear-gradient(90deg,transparent 0%,rgba(232,208,138,.08) 15%,rgba(232,208,138,.28) 35%,rgba(245,237,208,.38) 50%,rgba(232,208,138,.28) 65%,rgba(232,208,138,.08) 85%,transparent 100%);
+        transform:rotate(22deg);transform-origin:center center;
+        filter:blur(.6px)"></div>
+      <!-- línea diagonal 1 sombra suave -->
+      <div style="position:absolute;top:20%;left:-15%;width:140%;height:1px;
+        background:linear-gradient(90deg,transparent 0%,rgba(201,168,76,.05) 20%,rgba(201,168,76,.14) 50%,rgba(201,168,76,.05) 80%,transparent 100%);
+        transform:rotate(22deg) translateY(6px);transform-origin:center center"></div>
+      <!-- línea diagonal 2 -->
+      <div style="position:absolute;top:20%;left:-15%;width:140%;height:3px;
+        background:linear-gradient(90deg,transparent 0%,rgba(232,208,138,.08) 15%,rgba(232,208,138,.28) 35%,rgba(245,237,208,.38) 50%,rgba(232,208,138,.28) 65%,rgba(232,208,138,.08) 85%,transparent 100%);
+        transform:rotate(22deg) translateY(18px);transform-origin:center center;
+        filter:blur(.6px)"></div>
+      <!-- línea diagonal 2 sombra suave -->
+      <div style="position:absolute;top:20%;left:-15%;width:140%;height:1px;
+        background:linear-gradient(90deg,transparent 0%,rgba(201,168,76,.05) 20%,rgba(201,168,76,.14) 50%,rgba(201,168,76,.05) 80%,transparent 100%);
+        transform:rotate(22deg) translateY(24px);transform-origin:center center"></div>
+    </div>
+    <div class="si" style="position:relative;z-index:1">
       <div class="slbl rv" data-i18n="dc-slbl">Vestimenta</div>
       <h2 class="stit rv d1" data-i18n="dc-title">Dress Code</h2>
       <div class="gline rv d2"></div>
