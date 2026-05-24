@@ -1768,6 +1768,79 @@ document.body.style.overflow='hidden';
   tick();
   setInterval(tick,1000);
 })();
+
+/* ===== GYROSCOPE / MOUSE TILT — solo en el calendario ===== */
+(function(){
+  const card = document.querySelector('.countdown-section');
+  if(!card) return;
+
+  // Añadimos perspective al padre para que el 3D se vea bien
+  card.style.transformStyle = 'preserve-3d';
+  card.style.transition = 'transform 0.12s ease-out';
+  card.style.willChange = 'transform';
+
+  // Límite máximo de inclinación en grados
+  const MAX = 10;
+
+  function applyTilt(rx, ry){
+    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02,1.02,1.02)`;
+  }
+  function resetTilt(){
+    card.style.transition = 'transform 0.6s cubic-bezier(.25,.46,.45,.94)';
+    card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    setTimeout(()=>{ card.style.transition = 'transform 0.12s ease-out'; }, 600);
+  }
+
+  /* —— GIROSCOPIO (móvil) —— */
+  let gyroEnabled = false;
+  function handleGyro(e){
+    gyroEnabled = true;
+    // beta = inclinación adelante/atrás (-180 a 180), gamma = izq/der (-90 a 90)
+    const beta  = Math.min(Math.max(e.beta  || 0, -45), 45);  // adelante/atrás
+    const gamma = Math.min(Math.max(e.gamma || 0, -45), 45);  // izquierda/derecha
+    const rx = -(beta  / 45) * MAX;
+    const ry =  (gamma / 45) * MAX;
+    applyTilt(rx, ry);
+  }
+
+  // iOS 13+ requiere permiso explícito
+  if(typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function'){
+    // Pedimos permiso al primer toque sobre la tarjeta
+    card.addEventListener('click', function askOnce(){
+      DeviceOrientationEvent.requestPermission().then(state=>{
+        if(state === 'granted') window.addEventListener('deviceorientation', handleGyro, {passive:true});
+      }).catch(()=>{});
+      card.removeEventListener('click', askOnce);
+    }, {once:true});
+  } else {
+    window.addEventListener('deviceorientation', handleGyro, {passive:true});
+  }
+
+  /* —— MOUSE (desktop, solo si no hay giroscopio activo) —— */
+  card.addEventListener('mousemove', e=>{
+    if(gyroEnabled) return;
+    const r = card.getBoundingClientRect();
+    const cx = r.left + r.width  / 2;
+    const cy = r.top  + r.height / 2;
+    const dx = (e.clientX - cx) / (r.width  / 2);  // -1 a 1
+    const dy = (e.clientY - cy) / (r.height / 2);  // -1 a 1
+    applyTilt(-dy * MAX, dx * MAX);
+  });
+  card.addEventListener('mouseleave', ()=>{ if(!gyroEnabled) resetTilt(); });
+
+  /* —— Touch (móvil sin giroscopio) —— */
+  card.addEventListener('touchmove', e=>{
+    if(gyroEnabled) return;
+    const t = e.touches[0];
+    const r = card.getBoundingClientRect();
+    const cx = r.left + r.width  / 2;
+    const cy = r.top  + r.height / 2;
+    const dx = (t.clientX - cx) / (r.width  / 2);
+    const dy = (t.clientY - cy) / (r.height / 2);
+    applyTilt(-dy * MAX * 0.6, dx * MAX * 0.6);
+  }, {passive:true});
+  card.addEventListener('touchend', ()=>{ if(!gyroEnabled) resetTilt(); });
+})();
 </script>
 </body>
 </html>
