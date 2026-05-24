@@ -777,14 +777,7 @@ section::after{
 .countdown-section .cd-title{color:#7a4a10;text-shadow:0 1px 4px rgba(160,100,30,.3)}
 .countdown-section .cd-subtitle{color:#5a3a10}
 .countdown-section .cal-title{color:#5a3a10;font-size:clamp(16px,4.5vw,20px)}
-/* ícono de herradura en esquina */
-.countdown-horseshoe{
-  position:absolute;top:8.5%;right:calc(3% + 16px);
-  font-size:22px;z-index:3;
-  background:radial-gradient(circle,rgba(201,168,76,.2) 0%,transparent 70%);
-  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
-  border-radius:50%;
-}
+/* ícono de herradura eliminado */
 .cd-title{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(11px,3vw,15px);
@@ -876,9 +869,10 @@ section::after{
   box-shadow:0 4px 18px rgba(0,0,0,.45),inset 0 1px 0 rgba(201,168,76,.2);
 }
 .cal-btn-google{
-  background:transparent;
+  background:linear-gradient(180deg,#1a3a6b 0%,#0d2550 100%);
   border:1.5px solid rgba(201,168,76,.55);
   color:var(--gold-light);
+  box-shadow:0 4px 18px rgba(0,0,0,.45);
 }
 .cal-btn:hover{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 8px 24px rgba(0,0,0,.5),0 0 14px rgba(201,168,76,.2)}
 
@@ -1071,7 +1065,6 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
 
   <!-- COUNTDOWN + CALENDAR -->
   <div class="countdown-section rv">
-    <div class="countdown-horseshoe">🧲</div>
     <div class="cd-title" data-i18n="cd-title" style="color:#7a4a10;letter-spacing:.45em;text-shadow:0 1px 4px rgba(160,100,30,.2)">✦ CUENTA REGRESIVA ✦</div>
     <div class="cd-subtitle" data-i18n="cd-sub" style="color:#5a3a10;font-weight:600">Camila · XV Años · 26 Septiembre 2026</div>
     <div class="cd-grid">
