@@ -1047,7 +1047,7 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
     </div><!-- /env-wrap -->
   </div><!-- /env-scene-inner -->
 
-  <div class="env-hint">Toca para abrir</div>
+  <div class="env-hint">Touch to open</div>
 </div>
 
 <!-- ===== LIGHTBOX ===== -->
@@ -1405,6 +1405,39 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
         <a href="mailto:ccurielgarcia@gmail.com?subject=RSVP%20Quinceañera%20Camila" class="rbtn rbtn-s" data-i18n="rsvp-email">✉️ &nbsp; Confirmar por Email</a>
       </div>
       <p class="cash-note rv d3" style="text-shadow:0 2px 12px rgba(0,0,0,.9);color:#fff8ee" data-i18n="efectivo">✦ &nbsp; Efectivo únicamente, por favor &nbsp; ✦</p>
+      <div class="rv d4" style="margin-top:22px;display:flex;justify-content:center;align-items:center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" style="width:clamp(90px,24vw,130px);filter:drop-shadow(0 4px 18px rgba(201,168,76,.55)) drop-shadow(0 0 30px rgba(255,255,255,.18));animation:envIconFloat 3.5s ease-in-out infinite">
+          <defs>
+            <linearGradient id="envBg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#f0e8d8"/>
+            </linearGradient>
+            <linearGradient id="envGold" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#C9A84C" stop-opacity=".25"/>
+              <stop offset="50%" stop-color="#E8D08A" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#C9A84C" stop-opacity=".25"/>
+            </linearGradient>
+            <filter id="envSh"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity=".25"/></filter>
+          </defs>
+          <rect x="2" y="14" width="116" height="62" rx="5" fill="url(#envBg)" filter="url(#envSh)"/>
+          <rect x="3" y="15" width="114" height="60" rx="4.5" fill="none" stroke="url(#envGold)" stroke-width="1.4"/>
+          <rect x="7" y="19" width="106" height="52" rx="3" fill="none" stroke="#C9A84C" stroke-width=".5" opacity=".35"/>
+          <line x1="2" y1="14" x2="60" y2="46" stroke="#d4b87a" stroke-width=".8" opacity=".55"/>
+          <line x1="118" y1="14" x2="60" y2="46" stroke="#d4b87a" stroke-width=".8" opacity=".55"/>
+          <path d="M2 76 L60 44 L118 76" fill="none" stroke="#c9a84c" stroke-width=".7" opacity=".4"/>
+          <g transform="translate(60,40)">
+            <circle r="10" fill="rgba(201,168,76,.18)" stroke="#C9A84C" stroke-width=".9" opacity=".8"/>
+            <text text-anchor="middle" y="4.5" font-family="Georgia,serif" font-size="10" fill="#8a6820" opacity=".85" font-style="italic">✦</text>
+          </g>
+          <g fill="none" stroke="#C9A84C" stroke-width=".7" opacity=".5">
+            <path d="M13 23 L21 23"/><path d="M13 23 L13 31"/>
+            <path d="M107 23 L99 23"/><path d="M107 23 L107 31"/>
+            <path d="M13 69 L21 69"/><path d="M13 69 L13 61"/>
+            <path d="M107 69 L99 69"/><path d="M107 69 L107 61"/>
+          </g>
+        </svg>
+      </div>
+      <style>@keyframes envIconFloat{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-7px) rotate(.4deg)}}</style>
     </div>
   </section>
 
