@@ -1421,22 +1421,65 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
       <h2 class="stit rv d1" style="font-size:clamp(42px,14vw,80px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.6),0 2px 20px rgba(0,0,0,.95),0 4px 30px rgba(0,0,0,.8);letter-spacing:.05em">RSVP</h2>
       <div class="gline rv d2" style="background:linear-gradient(90deg,transparent,var(--gold),transparent)"></div>
       <p class="btxt rv d2" style="color:#fff;font-weight:400;text-shadow:0 2px 14px rgba(0,0,0,.95),0 1px 6px rgba(0,0,0,.9)" data-i18n="rsvp-sub">Por favor confirma tu asistencia<br>a más tardar una semana antes del evento</p>
-      <div class="rsvp-btns rv d3">
-        <a href="sms:6264882608" class="rbtn rbtn-p" data-i18n="rsvp-sms">📱 &nbsp; Confirmar por SMS</a>
-        <a href="mailto:ccurielgarcia@gmail.com?subject=RSVP%20Quinceañera%20Camila" class="rbtn rbtn-s" data-i18n="rsvp-email">✉️ &nbsp; Confirmar por Email</a>
-      </div>
-      <!-- GUESTS SELECTOR -->
-      <div class="rv d3" style="margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:7px">
-        <p style="font-family:'Lato',sans-serif;font-size:9px;letter-spacing:.5em;text-transform:uppercase;color:rgba(232,208,138,.7);text-shadow:0 1px 8px rgba(0,0,0,.8)">Guests</p>
-        <div style="display:flex;gap:8px;align-items:center">
-          <button onclick="(function(){var n=parseInt(document.getElementById('guestCount').textContent);if(n>1)document.getElementById('guestCount').textContent=n-1;})()" style="width:24px;height:24px;border-radius:50%;border:1px solid rgba(201,168,76,.5);background:rgba(0,0,0,.3);color:rgba(232,208,138,.85);font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:all .2s" onmouseover="this.style.background='rgba(201,168,76,.2)'" onmouseout="this.style.background='rgba(0,0,0,.3)'">−</button>
-          <div style="display:flex;align-items:center;gap:7px;padding:7px 16px;border-radius:8px;border:1px solid rgba(201,168,76,.4);background:rgba(0,0,0,.3);backdrop-filter:blur(8px);box-shadow:0 2px 12px rgba(0,0,0,.35)">
-            <span id="guestCount" style="font-family:'Cinzel Decorative',cursive;font-size:18px;color:#fff;line-height:1;text-shadow:0 0 12px rgba(201,168,76,.6);min-width:14px;text-align:center">1</span>
-            <span style="font-family:'Lato',sans-serif;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(232,208,138,.6)">person(s)</span>
+      <!-- RSVP FORM -->
+      <div class="rv d3" style="margin-top:32px;width:100%;max-width:420px;margin-left:auto;margin-right:auto">
+        <div style="background:rgba(5,15,35,.72);backdrop-filter:blur(18px);border:1px solid rgba(201,168,76,.35);border-radius:16px;padding:clamp(22px,6vw,36px) clamp(18px,5vw,32px);box-shadow:0 8px 40px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06)">
+
+          <!-- título del form -->
+          <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,22px);font-style:italic;color:#fff;text-align:center;margin-bottom:22px;text-shadow:0 2px 12px rgba(0,0,0,.8);letter-spacing:.04em">Confirm Your Attendance</p>
+          <div style="width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 24px"></div>
+
+          <!-- Full Name -->
+          <div style="margin-bottom:16px">
+            <label style="display:block;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:rgba(232,208,138,.8);margin-bottom:7px">Full Name</label>
+            <input id="rsvp-name" type="text" placeholder="Your full name" style="width:100%;padding:12px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.3);border-radius:8px;color:#fff;font-family:'Lato',sans-serif;font-size:14px;outline:none;transition:border .2s;box-shadow:inset 0 1px 4px rgba(0,0,0,.3)" onfocus="this.style.borderColor='rgba(201,168,76,.75)'" onblur="this.style.borderColor='rgba(201,168,76,.3)'">
           </div>
-          <button onclick="(function(){var n=parseInt(document.getElementById('guestCount').textContent);if(n<6)document.getElementById('guestCount').textContent=n+1;})()" style="width:24px;height:24px;border-radius:50%;border:1px solid rgba(201,168,76,.5);background:rgba(0,0,0,.3);color:rgba(232,208,138,.85);font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:all .2s" onmouseover="this.style.background='rgba(201,168,76,.2)'" onmouseout="this.style.background='rgba(0,0,0,.3)'">+</button>
+
+          <!-- Phone -->
+          <div style="margin-bottom:16px">
+            <label style="display:block;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:rgba(232,208,138,.8);margin-bottom:7px">Phone Number</label>
+            <input id="rsvp-phone" type="tel" placeholder="Your phone number" style="width:100%;padding:12px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.3);border-radius:8px;color:#fff;font-family:'Lato',sans-serif;font-size:14px;outline:none;transition:border .2s;box-shadow:inset 0 1px 4px rgba(0,0,0,.3)" onfocus="this.style.borderColor='rgba(201,168,76,.75)'" onblur="this.style.borderColor='rgba(201,168,76,.3)'">
+          </div>
+
+          <!-- Will you attend -->
+          <div style="margin-bottom:16px">
+            <label style="display:block;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:rgba(232,208,138,.8);margin-bottom:10px">Will You Attend?</label>
+            <div style="display:flex;gap:16px">
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+                <input type="radio" name="rsvp-attend" id="rsvp-yes" value="Yes, I'll be there" checked style="accent-color:var(--gold);width:16px;height:16px;cursor:pointer">
+                <span style="font-family:'Lato',sans-serif;font-size:13px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.8)">Yes, I'll be there</span>
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+                <input type="radio" name="rsvp-attend" id="rsvp-no" value="Sorry, I can't" style="accent-color:var(--gold);width:16px;height:16px;cursor:pointer">
+                <span style="font-family:'Lato',sans-serif;font-size:13px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.8)">Sorry, I can't</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Guests -->
+          <div style="margin-bottom:26px">
+            <label style="display:block;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:.45em;text-transform:uppercase;color:rgba(232,208,138,.8);margin-bottom:10px">Guests <span style="font-style:italic;text-transform:none;letter-spacing:0;opacity:.6">(including yourself · max 6)</span></label>
+            <div style="display:flex;align-items:center;gap:10px">
+              <button onclick="(function(){var n=parseInt(document.getElementById('rsvpGuests').textContent);if(n>1)document.getElementById('rsvpGuests').textContent=n-1;})()" style="width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,168,76,.5);background:rgba(255,255,255,.07);color:rgba(232,208,138,.9);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0" onmouseover="this.style.background='rgba(201,168,76,.2)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">−</button>
+              <div style="display:flex;align-items:center;gap:8px;padding:8px 18px;border-radius:8px;border:1px solid rgba(201,168,76,.35);background:rgba(255,255,255,.07);box-shadow:inset 0 1px 4px rgba(0,0,0,.3);flex:1;justify-content:center">
+                <span id="rsvpGuests" style="font-family:'Cinzel Decorative',cursive;font-size:20px;color:#fff;text-shadow:0 0 14px rgba(201,168,76,.55);min-width:18px;text-align:center">1</span>
+                <span style="font-family:'Lato',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(232,208,138,.6)">person(s)</span>
+              </div>
+              <button onclick="(function(){var n=parseInt(document.getElementById('rsvpGuests').textContent);if(n<6)document.getElementById('rsvpGuests').textContent=n+1;})()" style="width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,168,76,.5);background:rgba(255,255,255,.07);color:rgba(232,208,138,.9);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0" onmouseover="this.style.background='rgba(201,168,76,.2)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">+</button>
+            </div>
+          </div>
+
+          <!-- Send button -->
+          <button onclick="(function(){
+            var name=document.getElementById('rsvp-name').value.trim();
+            var phone=document.getElementById('rsvp-phone').value.trim();
+            var attend=document.querySelector('input[name=rsvp-attend]:checked').value;
+            var guests=document.getElementById('rsvpGuests').textContent;
+            var subject=encodeURIComponent('RSVP – Quinceañera Camila Curiel');
+            var body=encodeURIComponent('Hello!\n\nI would like to confirm my attendance for Camila Curiel\'s Quinceañera.\n\n— Full Name: '+name+'\n— Phone: '+phone+'\n— Attendance: '+attend+'\n— Number of Guests: '+guests+'\n\nThank you! ♡');
+            window.location.href='mailto:ccurielgarcia@gmail.com?subject='+subject+'&body='+body;
+          })()" style="width:100%;padding:14px;background:linear-gradient(135deg,#C9A84C,#E8D08A,#C9A84C);border:none;border-radius:10px;font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:#1a0f00;cursor:pointer;transition:all .25s;box-shadow:0 4px 20px rgba(201,168,76,.4)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(201,168,76,.55)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(201,168,76,.4)'">✦ &nbsp; Send RSVP &nbsp; ✦</button>
         </div>
-        <p style="font-family:'Cormorant Garamond',serif;font-size:10px;font-style:italic;color:rgba(232,208,138,.45);letter-spacing:.05em;text-shadow:0 1px 4px rgba(0,0,0,.7)">including yourself · max 6</p>
       </div>
       <p class="cash-note rv d3" style="text-shadow:0 2px 12px rgba(0,0,0,.9);color:#fff8ee" data-i18n="efectivo">✦ &nbsp; Efectivo únicamente, por favor &nbsp; ✦</p>
       <div class="rv d4" style="margin-top:22px;display:flex;justify-content:center;align-items:center">
