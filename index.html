@@ -334,6 +334,27 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .sec-blue .btxt{color:rgba(255,245,220,.92)}
 body{background:#0d1f3c;font-family:'Lato',sans-serif;overflow-x:hidden}
 
+/* degradados de transición entre secciones */
+section::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:80px;
+  background:linear-gradient(180deg,rgba(13,31,60,.85) 0%,transparent 100%);
+  pointer-events:none;
+  z-index:1;
+}
+section::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;
+  height:80px;
+  background:linear-gradient(0deg,rgba(13,31,60,.85) 0%,transparent 100%);
+  pointer-events:none;
+  z-index:1;
+}
+/* excepciones: secciones que ya tienen su propio pseudo-elemento */
+.countdown-section::before,.countdown-section::after{height:unset;background:unset}
+.sec-itin::before,.sec-itin::after{display:none}
+
 /* itinerary cinematic override */
 .sec-itin{background:linear-gradient(180deg,#0d1f3c 0%,#0d1f3c 5%,#a06a2a 18%,#2d4f82 35%,#0d1f3c 50%,#2d4f82 65%,#a06a2a 82%,#0d1f3c 95%,#0d1f3c 100%)!important}
 
@@ -728,17 +749,42 @@ body{background:#0d1f3c;font-family:'Lato',sans-serif;overflow-x:hidden}
 
 /* COUNTDOWN & CALENDAR */
 .countdown-section{
-  background:#0d1f3c;
+  background:linear-gradient(180deg,#0d1f3c 0%,#0d1f3c 6%,#ede0c0 14%,#ede0c0 86%,#0d1f3c 94%,#0d1f3c 100%);
   position:relative;overflow:hidden;
-  padding:clamp(50px,10vw,80px) 12px;
+  padding:clamp(70px,14vw,100px) 16px;
   text-align:center;
 }
 .countdown-section::before{
-  content:'';position:absolute;inset:0;z-index:0;
-  background:url('assests/fondocalendar.jpg') center center/cover no-repeat;
-  opacity:1;
+  content:'';position:absolute;
+  top:7%;left:50%;transform:translateX(-50%);
+  width:94%;max-width:440px;
+  bottom:7%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"),
+    linear-gradient(160deg,#fdf8ee 0%,#f5ecd8 30%,#ede0c4 60%,#f5ecd8 85%,#fdf8ee 100%);
+  border:2px solid rgba(160,120,55,.5);
+  border-radius:4px;
+  box-shadow:
+    0 0 0 5px rgba(160,120,55,.12),
+    0 0 0 6px rgba(160,120,55,.3),
+    0 8px 40px rgba(0,0,0,.4),
+    inset 0 0 30px rgba(200,168,90,.1);
+  z-index:0;
+  pointer-events:none;
 }
-.countdown-section>*{position:relative;z-index:1}
+.countdown-section>*{position:relative;z-index:2}
+/* colores del texto dentro del pergamino */
+.countdown-section .cd-title{color:#7a4a10;text-shadow:0 1px 4px rgba(160,100,30,.3)}
+.countdown-section .cd-subtitle{color:#5a3a10}
+.countdown-section .cal-title{color:#5a3a10;font-size:clamp(16px,4.5vw,20px)}
+/* ícono de herradura en esquina */
+.countdown-horseshoe{
+  position:absolute;top:8.5%;right:calc(3% + 16px);
+  font-size:22px;z-index:3;
+  background:radial-gradient(circle,rgba(201,168,76,.2) 0%,transparent 70%);
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+}
 .cd-title{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(11px,3vw,15px);
@@ -789,7 +835,7 @@ body{background:#0d1f3c;font-family:'Lato',sans-serif;overflow-x:hidden}
 }
 .cd-sep{
   font-size:clamp(16px,4.5vw,30px);
-  color:rgba(201,168,76,.55);
+  color:rgba(120,80,20,.6);
   align-self:center;padding-bottom:20px;font-weight:300;
 }
 .cal-title{
@@ -1025,8 +1071,9 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
 
   <!-- COUNTDOWN + CALENDAR -->
   <div class="countdown-section rv">
-    <div class="cd-title" data-i18n="cd-title">✦ Faltan ✦</div>
-    <div class="cd-subtitle" data-i18n="cd-sub">Camila · XV Años · 26 Septiembre 2026</div>
+    <div class="countdown-horseshoe">🧲</div>
+    <div class="cd-title" data-i18n="cd-title" style="color:#7a4a10;letter-spacing:.45em;text-shadow:0 1px 4px rgba(160,100,30,.2)">✦ CUENTA REGRESIVA ✦</div>
+    <div class="cd-subtitle" data-i18n="cd-sub" style="color:#5a3a10;font-weight:600">Camila · XV Años · 26 Septiembre 2026</div>
     <div class="cd-grid">
       <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-lbl" data-i18n="cd-dias">Días</div></div>
       <div class="cd-sep">:</div>
@@ -1036,7 +1083,7 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
       <div class="cd-sep">:</div>
       <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-lbl" data-i18n="cd-seg">Seg</div></div>
     </div>
-    <div class="cal-title" data-i18n="cal-title">♡ Agrega la fecha a tu calendario ♡</div>
+    <div class="cal-title" data-i18n="cal-title" style="color:#5a3a10;font-weight:500">♡ Agrega la fecha a tu calendario ♡</div>
     <div class="cal-btns">
       <a class="cal-btn cal-btn-apple" href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260926T190000Z%0ADTEND:20260926T230000Z%0ASUMMARY:XV%20A%C3%B1os%20Camila%20Curiel%0ADESCRIPTION:Mis%20Quincea%C3%B1eros%20%E2%99%A1%0AEND:VEVENT%0AEND:VCALENDAR" download="quincea-camila.ics" data-i18n="cal-apple">
         🍎 &nbsp; Guardar en Apple Calendar
@@ -1379,17 +1426,19 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
     <!-- foto de fondo on-horse-smiling -->
     <div style="position:absolute;inset:0;z-index:0">
       <img src="assests/on-horse-smiling.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
+      <!-- overlay leve solo para legibilidad del texto -->
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,4,1,.28) 0%,rgba(10,5,2,.38) 45%,rgba(5,2,1,.52) 100%)"></div>
     </div>
     <div class="si" style="position:relative;z-index:1;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px)">
-      <div class="slbl rv" style="color:var(--gold-light);letter-spacing:.5em" data-i18n="rsvp-slbl">Confirmación</div>
-      <h2 class="stit rv d1" style="font-size:clamp(42px,14vw,80px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.5),0 2px 16px rgba(0,0,0,.9);letter-spacing:.05em">RSVP</h2>
+      <div class="slbl rv" style="color:var(--gold-light);letter-spacing:.5em;text-shadow:0 2px 12px rgba(0,0,0,.9),0 0 20px rgba(0,0,0,.7)" data-i18n="rsvp-slbl">Confirmación</div>
+      <h2 class="stit rv d1" style="font-size:clamp(42px,14vw,80px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.6),0 2px 20px rgba(0,0,0,.95),0 4px 30px rgba(0,0,0,.8);letter-spacing:.05em">RSVP</h2>
       <div class="gline rv d2" style="background:linear-gradient(90deg,transparent,var(--gold),transparent)"></div>
-      <p class="btxt rv d2" style="color:rgba(255,245,220,.95);text-shadow:0 1px 8px rgba(0,0,0,.8)" data-i18n="rsvp-sub">Por favor confirma tu asistencia<br>a más tardar una semana antes del evento</p>
+      <p class="btxt rv d2" style="color:#fff;font-weight:400;text-shadow:0 2px 14px rgba(0,0,0,.95),0 1px 6px rgba(0,0,0,.9)" data-i18n="rsvp-sub">Por favor confirma tu asistencia<br>a más tardar una semana antes del evento</p>
       <div class="rsvp-btns rv d3">
         <a href="sms:6264882608" class="rbtn rbtn-p" data-i18n="rsvp-sms">📱 &nbsp; Confirmar por SMS</a>
         <a href="mailto:ccurielgarcia@gmail.com?subject=RSVP%20Quinceañera%20Camila" class="rbtn rbtn-s" data-i18n="rsvp-email">✉️ &nbsp; Confirmar por Email</a>
       </div>
-      <p class="cash-note rv d3" data-i18n="efectivo">✦ &nbsp; Efectivo únicamente, por favor &nbsp; ✦</p>
+      <p class="cash-note rv d3" style="text-shadow:0 2px 12px rgba(0,0,0,.9);color:#fff8ee" data-i18n="efectivo">✦ &nbsp; Efectivo únicamente, por favor &nbsp; ✦</p>
     </div>
   </section>
 
