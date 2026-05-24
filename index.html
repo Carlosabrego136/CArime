@@ -697,37 +697,68 @@ section::after{
 .icard{background:rgba(255,255,255,.2);border:1px solid rgba(100,55,10,.25);border-radius:6px;padding:26px 18px;text-align:center}
 
 /* =========================================================
-   DRESS CODE – elegant SVG shapes
+   DRESS CODE – photo grid con fotos reales
    ========================================================= */
-.dress-shapes{
-  display:flex;
-  justify-content:center;
-  gap:clamp(16px,5vw,36px);
-  flex-wrap:wrap;
-  margin-top:32px;
+.dc-photo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:3px;
+  margin-top:28px;
+  border:1.5px solid rgba(201,168,76,.55);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 4px 24px rgba(0,0,0,.45),0 0 0 1px rgba(201,168,76,.15);
 }
-.ds-item{
-  display:flex;flex-direction:column;align-items:center;gap:10px;
+.dc-photo-item{
+  position:relative;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  cursor:default;
 }
-.ds-shape{
-  width:clamp(60px,16vw,80px);
-  height:clamp(60px,16vw,80px);
-  flex-shrink:0;
-  filter:drop-shadow(0 6px 18px rgba(0,0,0,.4));
+.dc-photo-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+  transition:transform .5s ease;
 }
-.ds-name{
+.dc-photo-item:hover img{transform:scale(1.06)}
+.dc-photo-label{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:20px 4px 8px;
+  background:linear-gradient(0deg,rgba(8,4,1,.82) 0%,transparent 100%);
   font-family:'Lato',sans-serif;
-  font-size:13px;letter-spacing:.25em;text-transform:uppercase;
-  color:#3d2008;font-weight:800;
+  font-size:clamp(8px,2.5vw,11px);
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  font-weight:700;
   text-align:center;
+  text-shadow:0 1px 6px rgba(0,0,0,.9);
 }
-.no-blue{
-  margin-top:28px;background:rgba(13,31,60,.7);
-  border:1.5px solid rgba(201,168,76,.35);border-radius:6px;
-  padding:18px 22px;
+.dc-note-box{
+  margin-top:24px;
+  border:1.5px solid rgba(201,168,76,.4);
+  border-radius:6px;
+  padding:20px 22px;
+  background:rgba(13,31,60,.7);
+  backdrop-filter:blur(4px);
+}
+.dc-note-title{
+  font-family:'Cinzel Decorative',cursive;
+  font-size:clamp(13px,3.5vw,16px);
+  color:#fff8ee;
+  margin-bottom:10px;
+  font-weight:700;
+  text-shadow:0 1px 6px rgba(0,0,0,.4);
+}
+.dc-note-body{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(17px,4.5vw,20px);
-  color:#fff8ee;line-height:1.7;font-weight:400;
+  font-size:clamp(15px,4.2vw,18px);
+  color:var(--gold-light);
+  line-height:1.75;
+  font-weight:400;
 }
 
 /* =========================================================
@@ -1300,81 +1331,32 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
       <div class="gline rv d2"></div>
       <p class="btxt rv d2" style="font-size:clamp(18px,5vw,22px);color:#fff8ee;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.25)" data-i18n="dc-tema">Tema: <em style="color:var(--gold-light);font-style:italic">Vaquero Elegante</em></p>
 
-      <!-- Elegant SVG shapes for each color -->
-      <div class="dress-shapes rv d3">
-
-        <!-- Rustic: cowboy hat silhouette -->
-        <div class="ds-item">
-          <svg class="ds-shape" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="40" cy="58" rx="36" ry="8" fill="#7A5C3A"/>
-            <ellipse cx="40" cy="58" rx="36" ry="8" fill="none" stroke="#A0795A" stroke-width="1.5" opacity=".6"/>
-            <path d="M16 58 Q18 32 40 28 Q62 32 64 58 Z" fill="#9A7248"/>
-            <path d="M16 58 Q18 32 40 28 Q62 32 64 58" fill="none" stroke="#C4A06A" stroke-width="1.2" opacity=".5"/>
-            <!-- hat band -->
-            <path d="M22 54 Q40 50 58 54" fill="none" stroke="#C9A84C" stroke-width="2" opacity=".8"/>
-            <circle cx="40" cy="52" r="1.5" fill="#C9A84C" opacity=".9"/>
-          </svg>
-          <span class="ds-name">Rustic</span>
+      <!-- Grid de fotos reales -->
+      <div class="dc-photo-grid rv d3">
+        <div class="dc-photo-item">
+          <img src="assests/rustic.jpg" alt="Rustic" loading="lazy">
+          <div class="dc-photo-label" data-i18n="dc-rustic">Rustic</div>
         </div>
-
-        <!-- Gold: star / spur rowel -->
-        <div class="ds-item">
-          <svg class="ds-shape" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="40,8 46,30 70,30 51,44 58,68 40,54 22,68 29,44 10,30 34,30"
-              fill="#C9A84C" stroke="#E8D08A" stroke-width="1.5" stroke-linejoin="round"/>
-            <polygon points="40,18 44,32 58,32 47,40 51,56 40,48 29,56 33,40 22,32 36,32"
-              fill="#E8D08A" opacity=".5"/>
-            <circle cx="40" cy="40" r="5" fill="#fff8e0" opacity=".7"/>
-          </svg>
-          <span class="ds-name">Gold</span>
+        <div class="dc-photo-item">
+          <img src="assests/oro.jpg" alt="Gold" loading="lazy">
+          <div class="dc-photo-label" data-i18n="dc-gold">Gold</div>
         </div>
-
-        <!-- Cream: elegant rose / flower -->
-        <div class="ds-item">
-          <svg class="ds-shape" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-            <!-- petals -->
-            <ellipse cx="40" cy="25" rx="7" ry="14" fill="#F5EDD0" stroke="#D4C4A0" stroke-width="1" opacity=".95"/>
-            <ellipse cx="40" cy="25" rx="7" ry="14" fill="#F5EDD0" stroke="#D4C4A0" stroke-width="1" opacity=".95" transform="rotate(60 40 40)"/>
-            <ellipse cx="40" cy="25" rx="7" ry="14" fill="#F5EDD0" stroke="#D4C4A0" stroke-width="1" opacity=".95" transform="rotate(120 40 40)"/>
-            <ellipse cx="40" cy="25" rx="7" ry="14" fill="#F5EDD0" stroke="#D4C4A0" stroke-width="1" opacity=".95" transform="rotate(180 40 40)"/>
-            <ellipse cx="40" cy="25" rx="7" ry="14" fill="#F5EDD0" stroke="#D4C4A0" stroke-width="1" opacity=".95" transform="rotate(240 40 40)"/>
-            <ellipse cx="40" cy="25" rx="7" ry="14" fill="#F5EDD0" stroke="#D4C4A0" stroke-width="1" opacity=".95" transform="rotate(300 40 40)"/>
-            <circle cx="40" cy="40" r="8" fill="#E8D08A" opacity=".85"/>
-            <circle cx="40" cy="40" r="4" fill="#C9A84C" opacity=".9"/>
-          </svg>
-          <span class="ds-name">Cream</span>
+        <div class="dc-photo-item">
+          <img src="assests/cream.jpg" alt="Cream" loading="lazy">
+          <div class="dc-photo-label" data-i18n="dc-cream">Cream</div>
         </div>
-
-        <!-- Royal Blue: horseshoe -->
-        <div class="ds-item">
-          <svg class="ds-shape" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-            <!-- horseshoe shape -->
-            <path d="M22 62 L22 38 Q22 16 40 16 Q58 16 58 38 L58 62"
-              fill="none" stroke="#C9A84C" stroke-width="14" stroke-linecap="round"/>
-            <path d="M22 62 L22 38 Q22 16 40 16 Q58 16 58 38 L58 62"
-              fill="none" stroke="#2E5FA3" stroke-width="10" stroke-linecap="round"/>
-            <path d="M22 62 L22 38 Q22 16 40 16 Q58 16 58 38 L58 62"
-              fill="none" stroke="#3A6FC0" stroke-width="6" stroke-linecap="round" opacity=".6"/>
-            <!-- shine -->
-            <path d="M26 60 L26 38 Q26 22 40 22"
-              fill="none" stroke="rgba(255,255,255,.2)" stroke-width="3" stroke-linecap="round"/>
-            <!-- nail holes -->
-            <circle cx="22" cy="68" r="3" fill="#C9A84C" opacity=".85"/>
-            <circle cx="58" cy="68" r="3" fill="#C9A84C" opacity=".85"/>
-            <circle cx="18" cy="55" r="2" fill="#C9A84C" opacity=".7"/>
-            <circle cx="62" cy="55" r="2" fill="#C9A84C" opacity=".7"/>
-            <!-- gold border outline -->
-            <path d="M22 62 L22 38 Q22 16 40 16 Q58 16 58 38 L58 62"
-              fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
-          </svg>
-          <span class="ds-name">Royal Blue</span>
+        <div class="dc-photo-item">
+          <img src="assests/royalblue.jpg" alt="Royal Blue" loading="lazy">
+          <div class="dc-photo-label" data-i18n="dc-royal">Royal Blue</div>
         </div>
+      </div>
 
-      </div><!-- /dress-shapes -->
-
-      <div class="no-blue rv d3" data-i18n="dc-note">
-        🚫 Se solicita <strong>no asistir de azul</strong><br>
-        <span style="font-size:.95em;color:#3d2008;font-weight:700">ese color es exclusivo de la quinceañera</span>
+      <!-- Nota paleta de color -->
+      <div class="dc-note-box rv d3">
+        <div class="dc-note-title" data-i18n="dc-palette-title">Suggested Color Palette</div>
+        <p class="dc-note-body" data-i18n="dc-note">
+          🚫 Se solicita <strong style="color:#fff8ee">no asistir de azul</strong> — ese color es exclusivo de la quinceañera.<br>Por favor elige tu atuendo entre los otros hermosos tonos.
+        </p>
       </div>
     </div>
   </section>
@@ -1560,7 +1542,12 @@ const translations={
     'dc-slbl':'Vestimenta',
     'dc-title':'Dress Code',
     'dc-tema':'Tema: <em style="color:var(--gold-light)">Vaquero Elegante</em>',
-    'dc-note':'🚫 Se solicita <strong>no asistir de azul</strong><br><span style="font-size:.95em;color:#3d2008;font-weight:700">ese color es exclusivo de la quinceañera</span>',
+    'dc-rustic':'Rustic',
+    'dc-gold':'Oro',
+    'dc-cream':'Cream',
+    'dc-royal':'Royal Blue',
+    'dc-palette-title':'Paleta de Colores Sugerida',
+    'dc-note':'🚫 El color <strong style="color:#fff8ee">Royal Blue es exclusivo de la quinceañera</strong>.<br>Por favor elige tu atuendo entre los otros hermosos tonos.',
     'special2':'Con Amor',
     'fam-title':'Familia',
     'fam-parents':'Padres',
@@ -1614,7 +1601,12 @@ const translations={
     'dc-slbl':'Attire',
     'dc-title':'Dress Code',
     'dc-tema':'Theme: <em style="color:var(--gold-light)">Elegant Western</em>',
-    'dc-note':'🚫 Please <strong>do not wear blue</strong><br><span style="font-size:.95em;color:#3d2008;font-weight:700">that color is exclusive to the quinceañera</span>',
+    'dc-rustic':'Rustic',
+    'dc-gold':'Gold',
+    'dc-cream':'Cream',
+    'dc-royal':'Royal Blue',
+    'dc-palette-title':'Suggested Color Palette',
+    'dc-note':'🚫 The color <strong style="color:#fff8ee">Royal Blue is exclusive to the Quinceañera</strong>.<br>Please select your attire from the other beautiful tones provided.',
     'special2':'With Love',
     'fam-title':'Family',
     'fam-parents':'Parents',
