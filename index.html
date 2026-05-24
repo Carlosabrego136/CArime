@@ -1413,21 +1413,21 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
     <!-- foto de fondo on-horse-smiling -->
     <div style="position:absolute;inset:0;z-index:0">
       <img src="assests/on-horse-smiling.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 20%">
-      <!-- overlay leve solo para legibilidad del texto -->
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,4,1,.28) 0%,rgba(10,5,2,.38) 45%,rgba(5,2,1,.52) 100%)"></div>
+      <!-- overlay: más oscuro a la izquierda para legibilidad, claro a la derecha para ver la cara -->
+      <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(5,10,25,.72) 0%,rgba(5,10,25,.52) 45%,rgba(5,10,25,.12) 75%,transparent 100%)"></div>
     </div>
     <div class="si" style="position:relative;z-index:1;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px)">
       <div class="slbl rv" style="color:var(--gold-light);letter-spacing:.5em;text-shadow:0 2px 12px rgba(0,0,0,.9),0 0 20px rgba(0,0,0,.7)" data-i18n="rsvp-slbl">Confirmación</div>
       <h2 class="stit rv d1" style="font-size:clamp(42px,14vw,80px);color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,.6),0 2px 20px rgba(0,0,0,.95),0 4px 30px rgba(0,0,0,.8);letter-spacing:.05em">RSVP</h2>
       <div class="gline rv d2" style="background:linear-gradient(90deg,transparent,var(--gold),transparent)"></div>
-      <p class="btxt rv d2" style="color:#fff;font-weight:400;text-shadow:0 2px 14px rgba(0,0,0,.95),0 1px 6px rgba(0,0,0,.9)" data-i18n="rsvp-sub">Por favor confirma tu asistencia<br>a más tardar una semana antes del evento</p>
+      <p class="btxt rv d2" style="color:#fff;font-weight:400;text-shadow:0 2px 14px rgba(0,0,0,.95),0 1px 6px rgba(0,0,0,.9);text-align:left;max-width:260px" data-i18n="rsvp-sub">Por favor confirma tu asistencia<br>a más tardar una semana antes del evento</p>
       <!-- RSVP FORM -->
-      <div class="rv d3" style="margin-top:32px;width:100%;max-width:420px;margin-left:auto;margin-right:auto">
+      <div class="rv d3" style="margin-top:28px;width:100%;max-width:420px;margin-left:auto;margin-right:auto">
         <div style="background:rgba(30,55,100,.48);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.45);border-top:1px solid rgba(201,168,76,.7);border-radius:18px;padding:clamp(22px,6vw,34px) clamp(18px,5vw,30px);box-shadow:0 6px 32px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.1)">
 
           <!-- título del form -->
-          <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(19px,5.5vw,24px);font-style:italic;color:#fff;text-align:center;margin-bottom:6px;text-shadow:0 2px 16px rgba(0,0,0,.9),0 0 30px rgba(0,0,0,.7);letter-spacing:.04em;font-weight:400">Confirm Your Attendance</p>
-          <div style="width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 22px"></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,22px);font-style:italic;color:#fff;text-align:left;margin-bottom:6px;text-shadow:0 2px 16px rgba(0,0,0,.9),0 0 30px rgba(0,0,0,.7);letter-spacing:.04em;font-weight:400">Confirm Your Attendance</p>
+          <div style="width:50px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.2),transparent);margin:0 0 22px 0"></div>
 
           <!-- Full Name -->
           <div style="margin-bottom:14px">
