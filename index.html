@@ -320,80 +320,53 @@ body{background:#d4a054;font-family:'Lato',sans-serif;overflow-x:hidden}
    ========================================================= */
 section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);overflow:hidden}
 .si{max-width:700px;margin:0 auto;text-align:center}
-.slbl{font-family:'Lato',sans-serif;font-weight:800;font-size:13px;letter-spacing:.44em;text-transform:uppercase;color:#fff8e8;margin-bottom:14px;text-shadow:0 1px 6px rgba(0,0,0,.35)}
-.stit{font-family:'Cinzel Decorative',cursive;font-size:clamp(22px,6vw,36px);line-height:1.3;color:#fff8e8;margin-bottom:18px;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.45),0 1px 4px rgba(0,0,0,.5)}
+.slbl{font-family:'Lato',sans-serif;font-weight:700;font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.stit{font-family:'Cinzel Decorative',cursive;font-size:clamp(22px,6vw,36px);line-height:1.3;color:#fff8ee;margin-bottom:18px;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .gline{width:80px;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);margin:0 auto 28px}
 .btxt{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,22px);line-height:1.9;color:#fff0d0;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.3)}
-.sec-cream{background:#d4a054}
-.sec-white{background:#d4a054}
-.sec-blue{background:#d4a054}
-.sec-blue .slbl{color:rgba(255,240,200,.9)}
+
+/* ---- SECCIONES — azul marino oscuro base ---- */
+.sec-cream{background:#0d1f3c}
+.sec-white{background:#0d1f3c}
+.sec-blue{background:#0d1f3c}
+.sec-blue .slbl{color:var(--gold-light)}
 .sec-blue .stit{color:#fff8ee}
 .sec-blue .btxt{color:rgba(255,245,220,.92)}
+body{background:#0d1f3c;font-family:'Lato',sans-serif;overflow-x:hidden}
+
 /* itinerary cinematic override */
-.sec-itin{background:linear-gradient(160deg,#0d1f3c 0%,#1a3a6b 38%,#b8822a 68%,#c49040 100%)!important}
+.sec-itin{background:linear-gradient(180deg,#0d1f3c 0%,#0d1f3c 5%,#a06a2a 18%,#2d4f82 35%,#0d1f3c 50%,#2d4f82 65%,#a06a2a 82%,#0d1f3c 95%,#0d1f3c 100%)!important}
 
 /* =========================================================
    CEREMONY & VENUE – location maps
    ========================================================= */
 .loc-card{
   margin-top:30px;
-  border:1px solid rgba(201,168,76,.5);
+  border:1.5px solid rgba(201,168,76,.45);
   border-radius:8px;
   overflow:hidden;
-  background:rgba(0,0,0,.18);
+  background:rgba(13,31,60,.65);
+  box-shadow:0 4px 24px rgba(0,0,0,.35),inset 0 0 0 1px rgba(201,168,76,.08);
 }
-.loc-info{
-  padding:20px 22px;
-  text-align:center;
-}
-.loc-label{
-  font-family:'Lato',sans-serif;font-size:13px;letter-spacing:.35em;text-transform:uppercase;
-  color:var(--gold-light);margin-bottom:10px;font-weight:700;
-}
-.loc-name{
-  font-family:'Cinzel Decorative',cursive;
-  font-size:clamp(16px,4.5vw,20px);
-  color:#fff8ee;
-  margin-bottom:6px;line-height:1.3;font-weight:700;
-  text-shadow:0 1px 8px rgba(0,0,0,.4);
-}
-.loc-addr{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(17px,4.5vw,20px);
-  color:rgba(255,240,200,.9);line-height:1.65;font-weight:400;
-}
-.loc-time{
-  display:inline-block;
-  margin-top:12px;
-  font-family:'Cinzel Decorative',cursive;
-  font-size:clamp(16px,4.5vw,20px);
-  color:var(--gold-light);
-  letter-spacing:.08em;font-weight:700;
-}
-/* map embed */
-.loc-map{
-  width:100%;
-  height:180px;
-  border:none;
-  display:block;
-  filter:grayscale(.2) contrast(1.05);
-  opacity:.9;
-}
-/* For blue sections */
-.sec-blue .loc-card{background:rgba(255,255,255,.25);border-color:rgba(100,60,10,.3)}
-.sec-blue .loc-name{color:#3d2008}
-.sec-blue .loc-addr{color:rgba(60,35,8,.85)}
-.sec-blue .loc-time{color:#3d2008}
-.sec-blue .loc-label{color:rgba(80,45,10,.75)}
+.loc-info{padding:20px 22px;text-align:center}
+.loc-label{font-family:'Lato',sans-serif;font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px;font-weight:700}
+.loc-name{font-family:'Cinzel Decorative',cursive;font-size:clamp(16px,4.5vw,20px);color:#fff8ee;margin-bottom:6px;line-height:1.3;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.loc-addr{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,4.5vw,20px);color:rgba(255,240,200,.88);line-height:1.65;font-weight:400}
+.loc-time{display:inline-block;margin-top:12px;font-family:'Cinzel Decorative',cursive;font-size:clamp(16px,4.5vw,20px);color:var(--gold-light);letter-spacing:.08em;font-weight:700}
+.loc-map{width:100%;height:180px;border:none;display:block;filter:grayscale(.2) contrast(1.05);opacity:.9}
+.sec-blue .loc-card{background:rgba(13,31,60,.65);border-color:rgba(201,168,76,.4)}
+.sec-blue .loc-name{color:#fff8ee}
+.sec-blue .loc-addr{color:rgba(255,240,200,.88)}
+.sec-blue .loc-time{color:var(--gold-light)}
+.sec-blue .loc-label{color:var(--gold-light)}
 
 /* =========================================================
    PHOTO GALLERY
    ========================================================= */
-.gallery-section{background:#d4a054;padding:clamp(50px,10vw,80px) 0 0}
+.gallery-section{background:#0d1f3c;padding:clamp(50px,10vw,80px) 0 0}
 .gallery-header{text-align:center;padding:0 20px 36px}
-.gallery-header .slbl{color:#fff8e8;font-weight:800;font-size:13px;text-shadow:0 1px 6px rgba(0,0,0,.3)}
-.gallery-header .stit{color:#fff8ee;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.gallery-header .slbl{color:var(--gold-light);font-weight:700;font-size:11px;letter-spacing:.5em}
+.gallery-header .stit{color:#fff8ee;font-weight:700;text-shadow:0 2px 10px rgba(0,0,0,.5)}
 .gallery-header .gline{background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
 
 .photo-grid{
@@ -646,27 +619,16 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 }
 /* dot centered on line */
 .tl-dot{
-  position:relative;
-  z-index:2;
-  width:56px;height:56px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#fffdf5,#faefc8);
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;
-  box-shadow:
-    0 0 0 6px rgba(255,250,230,.30),
-    0 0 0 12px rgba(255,245,210,.12),
-    0 4px 20px rgba(0,0,0,.18);
-  margin-bottom:14px;
-  flex-shrink:0;
+  position:relative;z-index:2;
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,#1a3a6b,#0d1f3c);
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+  box-shadow:0 0 0 3px rgba(201,168,76,.35),0 0 0 6px rgba(201,168,76,.1),0 4px 20px rgba(0,0,0,.4);
+  margin-bottom:14px;flex-shrink:0;
 }
-/* royal blue dots — alternating */
 .tl-item:nth-child(even) .tl-dot{
-  background:linear-gradient(135deg,#4a6fa5,#2d4f82);
-  box-shadow:
-    0 0 0 6px rgba(74,111,165,.20),
-    0 0 0 12px rgba(45,79,130,.08),
-    0 4px 20px rgba(0,0,0,.22);
+  background:linear-gradient(135deg,#2d4f82,#1a3a6b);
+  box-shadow:0 0 0 3px rgba(201,168,76,.3),0 0 0 6px rgba(74,111,165,.15),0 4px 20px rgba(0,0,0,.35);
 }
 /* text block below dot */
 .tl-card{
@@ -739,8 +701,8 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
   text-align:center;
 }
 .no-blue{
-  margin-top:28px;background:rgba(0,0,0,.2);
-  border:1px solid rgba(201,168,76,.35);border-radius:6px;
+  margin-top:28px;background:rgba(13,31,60,.7);
+  border:1.5px solid rgba(201,168,76,.35);border-radius:6px;
   padding:18px 22px;
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(17px,4.5vw,20px);
@@ -751,7 +713,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
    FAMILY
    ========================================================= */
 .nm-list{display:flex;flex-direction:column;gap:4px;margin-top:14px}
-.nm-list span{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,5.5vw,26px);color:#fff8ee;font-weight:400;letter-spacing:.04em;text-shadow:0 1px 6px rgba(0,0,0,.3)}
+.nm-list span{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,5.5vw,26px);color:#fff8ee;font-weight:400;letter-spacing:.04em;text-shadow:0 1px 8px rgba(0,0,0,.4)}
 
 /* =========================================================
    RSVP
@@ -766,7 +728,7 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 
 /* COUNTDOWN & CALENDAR */
 .countdown-section{
-  background:#d4a054;
+  background:#0d1f3c;
   padding:clamp(50px,10vw,80px) 24px;
   text-align:center;
 }
@@ -873,11 +835,11 @@ section{position:relative;padding:clamp(64px,12vw,104px) clamp(20px,6vw,60px);ov
 .cal-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,50,100,.35)}
 
 /* FOOTER */
-footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align:center}
-.ft-name{font-family:'Cinzel Decorative',cursive;font-size:clamp(24px,7vw,50px);color:var(--gold);margin-bottom:16px;text-shadow:0 0 40px rgba(201,168,76,.3)}
+footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:center}
+.ft-name{font-family:'Cinzel Decorative',cursive;font-size:clamp(24px,7vw,50px);color:var(--gold);margin-bottom:16px;text-shadow:0 0 40px rgba(201,168,76,.4)}
 .ft-div{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 20px}
-.ft-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,4.8vw,22px);color:#fff8ee;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.3);letter-spacing:.04em}
-.ft-love{margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4.2vw,18px);color:rgba(255,240,200,.82);letter-spacing:.04em;text-shadow:0 1px 4px rgba(0,0,0,.25)}
+.ft-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,4.8vw,22px);color:#fff8ee;font-weight:400;text-shadow:0 1px 6px rgba(0,0,0,.4);letter-spacing:.04em}
+.ft-love{margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4.2vw,18px);color:rgba(255,240,200,.75);letter-spacing:.04em}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
@@ -1084,7 +1046,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
   </div>
 
   <!-- DIVIDER: calendario → ceremonia -->
-  <div style="background:#d4a054;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 24px">
+  <div style="background:#0d1f3c;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 24px">
     <div style="flex:1;max-width:100px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,240,200,.55))"></div>
     <span style="color:rgba(255,220,180,.8);font-size:15px;letter-spacing:.28em">♡ ♡ ♡</span>
     <div style="flex:1;max-width:100px;height:1px;background:linear-gradient(90deg,rgba(255,240,200,.55),transparent)"></div>
@@ -1306,7 +1268,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
       </div>
     </div>
   </section>
-  <div style="background:#d4a054;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 24px">
+  <div style="background:#0d1f3c;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 24px">
     <div style="flex:1;max-width:100px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,240,200,.55))"></div>
     <span style="color:rgba(255,220,180,.8);font-size:15px;letter-spacing:.28em">♡ ♡ ♡</span>
     <div style="flex:1;max-width:100px;height:1px;background:linear-gradient(90deg,rgba(255,240,200,.55),transparent)"></div>
@@ -1450,7 +1412,7 @@ footer{background:var(--dark);padding:clamp(50px,10vw,80px) 24px 44px;text-align
   </section>
 
   <!-- FOOTER -->
-  <footer style="background:#d4a054;padding:clamp(28px,6vw,44px) 24px 32px;text-align:center;position:relative;z-index:2">
+  <footer style="background:#0d1f3c;padding:clamp(28px,6vw,44px) 24px 32px;text-align:center;position:relative;z-index:2">
     <div style="width:80%;max-width:280px;margin:0 auto 24px;display:flex;align-items:center;gap:10px">
       <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,240,200,.6))"></div>
       <span style="color:rgba(255,220,180,.85);font-size:16px;letter-spacing:.3em">♡ ♡ ♡</span>
