@@ -729,80 +729,68 @@ body{background:#0d1f3c;font-family:'Lato',sans-serif;overflow-x:hidden}
 /* COUNTDOWN & CALENDAR */
 .countdown-section{
   background:#0d1f3c;
-  padding:clamp(50px,10vw,80px) 24px;
+  position:relative;overflow:hidden;
+  padding:clamp(50px,10vw,80px) 12px;
   text-align:center;
 }
+.countdown-section::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:url('assests/fondocalendar.jpg') center center/cover no-repeat;
+  opacity:.13;
+}
+.countdown-section>*{position:relative;z-index:1}
 .cd-title{
   font-family:'Cinzel Decorative',cursive;
-  font-size:clamp(13px,3.5vw,16px);
+  font-size:clamp(11px,3vw,15px);
   color:var(--gold-light);
-  letter-spacing:.45em;
-  text-transform:uppercase;
-  margin-bottom:8px;
-  font-weight:700;
+  letter-spacing:.45em;text-transform:uppercase;
+  margin-bottom:8px;font-weight:700;
   text-shadow:0 1px 8px rgba(0,0,0,.5);
 }
 .cd-subtitle{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;
-  font-size:clamp(17px,4.5vw,22px);
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(15px,4vw,20px);
   color:rgba(255,240,200,.88);
-  margin-bottom:32px;
-  font-weight:400;
+  margin-bottom:28px;font-weight:400;
 }
 .cd-grid{
-  display:flex;
-  justify-content:center;
-  gap:clamp(8px,3vw,16px);
-  margin-bottom:36px;
+  display:flex;justify-content:center;
+  gap:clamp(4px,1.8vw,10px);
+  margin-bottom:32px;
+  padding:0 4px;
 }
-/* caja ornamental estilo pergamino oscuro */
 .cd-box{
   background:linear-gradient(180deg,#1a3260 0%,#0d1f3c 50%,#0a1830 100%);
   border:2px solid var(--gold);
   border-radius:6px;
-  padding:clamp(12px,3.5vw,20px) clamp(10px,3vw,18px);
-  min-width:clamp(62px,17vw,84px);
+  padding:10px 4px;
+  width:clamp(54px,20vw,80px);
+  flex:0 0 auto;
   position:relative;
-  box-shadow:
-    0 0 0 1px rgba(201,168,76,.15),
-    0 4px 20px rgba(0,0,0,.55),
-    inset 0 1px 0 rgba(201,168,76,.2),
-    inset 0 -1px 0 rgba(201,168,76,.1);
+  box-shadow:0 0 0 1px rgba(201,168,76,.15),0 4px 20px rgba(0,0,0,.55),inset 0 1px 0 rgba(201,168,76,.2);
 }
-/* esquinas ornamentales */
 .cd-box::before,.cd-box::after{
-  content:'✦';
-  position:absolute;
-  font-size:8px;
-  color:rgba(201,168,76,.6);
-  line-height:1;
+  content:'✦';position:absolute;font-size:7px;
+  color:rgba(201,168,76,.6);line-height:1;
 }
-.cd-box::before{top:3px;left:5px}
-.cd-box::after{bottom:3px;right:5px}
+.cd-box::before{top:3px;left:4px}
+.cd-box::after{bottom:3px;right:4px}
 .cd-num{
   font-family:'Cinzel Decorative',cursive;
-  font-size:clamp(30px,10vw,54px);
-  color:#fff8ee;
-  line-height:1;
-  font-weight:700;
-  text-shadow:0 2px 16px rgba(0,0,0,.7),0 0 30px rgba(201,168,76,.15);
+  font-size:clamp(22px,7vw,44px);
+  color:#fff8ee;line-height:1;font-weight:700;
+  text-shadow:0 2px 16px rgba(0,0,0,.7);
 }
 .cd-lbl{
   font-family:'Lato',sans-serif;
-  font-size:clamp(8px,2.2vw,10px);
-  letter-spacing:.3em;
-  text-transform:uppercase;
-  color:var(--gold-light);
-  margin-top:8px;
-  font-weight:400;
+  font-size:clamp(6px,1.8vw,9px);
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-light);margin-top:6px;font-weight:400;
 }
 .cd-sep{
-  font-size:clamp(22px,6vw,38px);
+  font-size:clamp(16px,4.5vw,30px);
   color:rgba(201,168,76,.55);
-  align-self:center;
-  padding-bottom:22px;
-  font-weight:300;
+  align-self:center;padding-bottom:20px;font-weight:300;
 }
 .cal-title{
   font-family:'Cormorant Garamond',serif;
@@ -1137,10 +1125,6 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
         <img class="pg-img" src="assests/sitting-baby-goat.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 20%">
         <div class="pg-ov"></div><div class="pg-frame"></div>
       </div>
-      <div class="pg-item" style="grid-row:span 2" data-idx="6">
-        <img class="pg-img" src="assests/on-horse-mountain-view.jpg" alt="" loading="lazy" decoding="async" style="object-position:center 15%">
-        <div class="pg-ov"></div><div class="pg-frame"></div>
-      </div>
 
     </div>
   </div>
@@ -1164,21 +1148,11 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
   <div class="carousel-wrap" id="carouselWrap">
     <div class="car-track" id="carTrack">
       <div class="car-slide active" id="carSlide0">
-        <img class="car-img" src="assests/on-horse-mountain-view.jpg" alt="Vista en la montaña" loading="lazy">
-      </div>
-      <div class="car-slide" id="carSlide1">
         <img class="car-img" src="assests/sitting-baby-goat.jpg" alt="Momentos especiales" loading="lazy">
       </div>
     </div>
-    <button class="car-btn car-prev" id="carPrev" aria-label="Anterior">&#8249;</button>
-    <button class="car-btn car-next" id="carNext" aria-label="Siguiente">&#8250;</button>
-    <div class="car-dots">
-      <span class="car-dot active" data-i="0"></span>
-      <span class="car-dot" data-i="1"></span>
-    </div>
     <div class="car-caption">
       <p class="car-caption-text" id="capText0" data-i18n="cap0">✦ Libre como el viento, hermosa como el campo ✦</p>
-      <p class="car-caption-text" id="capText1" style="display:none" data-i18n="cap1">♡ Cada momento contigo es un regalo del cielo ♡</p>
     </div>
   </div>
 
@@ -1691,7 +1665,6 @@ const PHOTOS=[
   'assests/on-horse-touching-hat.jpg',
   'assests/petting-horse.jpg',
   'assests/sitting-baby-goat.jpg',
-  'assests/on-horse-mountain-view.jpg',
 ];
 let lbIdx=0;
 function buildLightbox(){
@@ -1737,29 +1710,36 @@ document.body.style.overflow='hidden';
 /* ── Carrusel ── */
 (function(){
   const slides = document.querySelectorAll('.car-slide');
-  const dots   = document.querySelectorAll('.car-dot');
-  const caps   = [document.getElementById('capText0'), document.getElementById('capText1')];
+  if(!slides.length) return;
+  const dots = document.querySelectorAll('.car-dot');
+  const cap0 = document.getElementById('capText0');
+  const cap1 = document.getElementById('capText1');
+  const caps = [cap0, cap1].filter(Boolean);
   let cur = 0;
+  if(slides.length <= 1) return; // solo una slide, nada que hacer
   function goTo(n){
     slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    caps[cur].style.display='none';
+    if(dots[cur]) dots[cur].classList.remove('active');
+    if(caps[cur]) caps[cur].style.display='none';
     cur = (n + slides.length) % slides.length;
     slides[cur].classList.add('active');
-    dots[cur].classList.add('active');
-    caps[cur].style.display='';
+    if(dots[cur]) dots[cur].classList.add('active');
+    if(caps[cur]) caps[cur].style.display='';
   }
-  document.getElementById('carPrev').addEventListener('click', ()=>goTo(cur-1));
-  document.getElementById('carNext').addEventListener('click', ()=>goTo(cur+1));
+  const prev = document.getElementById('carPrev');
+  const next = document.getElementById('carNext');
+  if(prev) prev.addEventListener('click', ()=>goTo(cur-1));
+  if(next) next.addEventListener('click', ()=>goTo(cur+1));
   dots.forEach(d=>d.addEventListener('click', ()=>goTo(+d.dataset.i)));
-  /* swipe */
-  let sx=0;
   const wrap = document.getElementById('carouselWrap');
-  wrap.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-  wrap.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-sx;
-    if(Math.abs(dx)>40) goTo(dx<0?cur+1:cur-1);
-  },{passive:true});
+  let sx=0;
+  if(wrap){
+    wrap.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+    wrap.addEventListener('touchend',e=>{
+      const dx=e.changedTouches[0].clientX-sx;
+      if(Math.abs(dx)>40) goTo(dx<0?cur+1:cur-1);
+    },{passive:true});
+  }
 })();
 
 /* ===== COUNTDOWN ===== */
