@@ -809,6 +809,15 @@ section::after{
 .countdown-section .cd-subtitle{color:#5a3a10}
 .countdown-section .cal-title{color:#5a3a10;font-size:clamp(16px,4.5vw,20px)}
 /* ícono de herradura eliminado */
+/* Tarjeta 3D calendario */
+#calCard{
+  position:relative;
+  z-index:2;
+  transform-style:preserve-3d;
+  transition:transform 0.08s linear;
+  will-change:transform;
+  cursor:default;
+}
 .cd-title{
   font-family:'Cinzel Decorative',cursive;
   font-size:clamp(11px,3vw,15px);
@@ -1096,6 +1105,7 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
 
   <!-- COUNTDOWN + CALENDAR -->
   <div class="countdown-section rv">
+    <div id="calCard">
     <div class="cd-title" data-i18n="cd-title" style="color:#7a4a10;letter-spacing:.45em;text-shadow:0 1px 4px rgba(160,100,30,.2)">✦ CUENTA REGRESIVA ✦</div>
     <div class="cd-subtitle" data-i18n="cd-sub" style="color:#5a3a10;font-weight:600">Camila · XV Años · 26 Septiembre 2026</div>
     <div class="cd-grid">
@@ -1115,6 +1125,7 @@ footer{background:#0d1f3c;padding:clamp(50px,10vw,80px) 24px 44px;text-align:cen
       <a class="cal-btn cal-btn-google" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+A%C3%B1os+Camila+Curiel&dates=20260926T190000Z/20260926T230000Z&details=Mis+Quincea%C3%B1eros+%E2%99%A1" target="_blank" rel="noopener" data-i18n="cal-google">
         📅 &nbsp; Guardar en Google Calendar
       </a>
+    </div>
     </div>
   </div>
 
@@ -1769,77 +1780,75 @@ document.body.style.overflow='hidden';
   setInterval(tick,1000);
 })();
 
-/* ===== GYROSCOPE / MOUSE TILT — solo en el calendario ===== */
+/* ===== GYROSCOPE / MOUSE TILT — solo tarjeta calendario ===== */
 (function(){
-  const card = document.querySelector('.countdown-section');
+  const card = document.getElementById('calCard');
   if(!card) return;
 
-  // Añadimos perspective al padre para que el 3D se vea bien
-  card.style.transformStyle = 'preserve-3d';
-  card.style.transition = 'transform 0.12s ease-out';
-  card.style.willChange = 'transform';
+  const MAX_TILT = 18; // grados máximos — bien visible
+  let gyroActive = false;
+  let betaBase = null, gammaBase = null;
 
-  // Límite máximo de inclinación en grados
-  const MAX = 10;
-
-  function applyTilt(rx, ry){
-    card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02,1.02,1.02)`;
+  function tilt(rx, ry){
+    card.style.transform =
+      `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.03,1.03,1.03)`;
   }
-  function resetTilt(){
-    card.style.transition = 'transform 0.6s cubic-bezier(.25,.46,.45,.94)';
-    card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
-    setTimeout(()=>{ card.style.transition = 'transform 0.12s ease-out'; }, 600);
+  function reset(){
+    card.style.transition = 'transform 0.7s cubic-bezier(.25,.46,.45,.94)';
+    card.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    setTimeout(()=>{ card.style.transition = 'transform 0.08s linear'; }, 700);
   }
 
-  /* —— GIROSCOPIO (móvil) —— */
-  let gyroEnabled = false;
-  function handleGyro(e){
-    gyroEnabled = true;
-    // beta = inclinación adelante/atrás (-180 a 180), gamma = izq/der (-90 a 90)
-    const beta  = Math.min(Math.max(e.beta  || 0, -45), 45);  // adelante/atrás
-    const gamma = Math.min(Math.max(e.gamma || 0, -45), 45);  // izquierda/derecha
-    const rx = -(beta  / 45) * MAX;
-    const ry =  (gamma / 45) * MAX;
-    applyTilt(rx, ry);
+  /* —— GIROSCOPIO —— */
+  function onGyro(e){
+    // Calibramos la posición inicial la primera vez
+    if(betaBase === null){
+      betaBase  = e.beta  || 0;
+      gammaBase = e.gamma || 0;
+    }
+    const db = (e.beta  || 0) - betaBase;   // delta adelante/atrás
+    const dg = (e.gamma || 0) - gammaBase;  // delta izq/der
+
+    // Clamp a ±45° de rango real del sensor → mapeamos a MAX_TILT
+    const rx = -Math.min(Math.max(db / 45, -1), 1) * MAX_TILT;
+    const ry =  Math.min(Math.max(dg / 45, -1), 1) * MAX_TILT;
+    gyroActive = true;
+    card.style.transition = 'transform 0.08s linear';
+    tilt(rx, ry);
   }
 
-  // iOS 13+ requiere permiso explícito
-  if(typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function'){
-    // Pedimos permiso al primer toque sobre la tarjeta
-    card.addEventListener('click', function askOnce(){
-      DeviceOrientationEvent.requestPermission().then(state=>{
-        if(state === 'granted') window.addEventListener('deviceorientation', handleGyro, {passive:true});
-      }).catch(()=>{});
-      card.removeEventListener('click', askOnce);
-    }, {once:true});
-  } else {
-    window.addEventListener('deviceorientation', handleGyro, {passive:true});
+  function startGyro(){
+    betaBase = null; gammaBase = null; // reset calibración
+    window.addEventListener('deviceorientation', onGyro, {passive:true});
   }
 
-  /* —— MOUSE (desktop, solo si no hay giroscopio activo) —— */
+  if(typeof DeviceOrientationEvent !== 'undefined'){
+    if(typeof DeviceOrientationEvent.requestPermission === 'function'){
+      // iOS 13+ — pedir permiso al tocar la tarjeta
+      card.addEventListener('touchstart', function ask(){
+        DeviceOrientationEvent.requestPermission()
+          .then(s=>{ if(s==='granted') startGyro(); })
+          .catch(()=>{});
+        card.removeEventListener('touchstart', ask);
+      }, {once:true, passive:true});
+    } else {
+      // Android y otros — directo
+      startGyro();
+    }
+  }
+
+  /* —— MOUSE (desktop) —— */
   card.addEventListener('mousemove', e=>{
-    if(gyroEnabled) return;
-    const r = card.getBoundingClientRect();
+    if(gyroActive) return;
+    const r  = card.getBoundingClientRect();
     const cx = r.left + r.width  / 2;
     const cy = r.top  + r.height / 2;
-    const dx = (e.clientX - cx) / (r.width  / 2);  // -1 a 1
-    const dy = (e.clientY - cy) / (r.height / 2);  // -1 a 1
-    applyTilt(-dy * MAX, dx * MAX);
+    const dx = (e.clientX - cx) / (r.width  / 2);
+    const dy = (e.clientY - cy) / (r.height / 2);
+    card.style.transition = 'transform 0.08s linear';
+    tilt(-dy * MAX_TILT, dx * MAX_TILT);
   });
-  card.addEventListener('mouseleave', ()=>{ if(!gyroEnabled) resetTilt(); });
-
-  /* —— Touch (móvil sin giroscopio) —— */
-  card.addEventListener('touchmove', e=>{
-    if(gyroEnabled) return;
-    const t = e.touches[0];
-    const r = card.getBoundingClientRect();
-    const cx = r.left + r.width  / 2;
-    const cy = r.top  + r.height / 2;
-    const dx = (t.clientX - cx) / (r.width  / 2);
-    const dy = (t.clientY - cy) / (r.height / 2);
-    applyTilt(-dy * MAX * 0.6, dx * MAX * 0.6);
-  }, {passive:true});
-  card.addEventListener('touchend', ()=>{ if(!gyroEnabled) resetTilt(); });
+  card.addEventListener('mouseleave', ()=>{ if(!gyroActive) reset(); });
 })();
 </script>
 </body>
